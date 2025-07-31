@@ -84,7 +84,7 @@ task DownloadBamsImpl {
     >>>
     
     output {
-        File coverage_txt = work_dir + "/coverage.txt"
+        File coverage_txt = "coverage.txt"
     }
     runtime {
         docker: "fcunial/smaht_experiments"

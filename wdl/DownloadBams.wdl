@@ -70,6 +70,9 @@ task DownloadBamsImpl {
         # Downloading
         cut -f 1,3 ~{manifest_tsv} | tail -n +4 | grep -v ^# | xargs -n 2 -L 1 sh -c 'credentials=$(curl -s -L --user ${ACCESS_KEY_ID}:${ACCESS_KEY_SECRET} "$0" | jq -r ".download_credentials | {AccessKeyId, SecretAccessKey, SessionToken, download_url}") && export AWS_ACCESS_KEY_ID=$(echo $credentials | jq -r ".AccessKeyId") && export AWS_SECRET_ACCESS_KEY=$(echo $credentials | jq -r ".SecretAccessKey") && export AWS_SESSION_TOKEN=$(echo $credentials | jq -r ".SessionToken") && download_url=$(echo $credentials | jq -r ".download_url") && aws s3 cp "$download_url" "$1"'
         
+        ${TIME_COMMAND} samtools coverage *.bam > coverage.txt
+        wait
+        
         # Uploading
         while : ; do
             TEST=$(gsutil ${GSUTIL_UPLOAD_THRESHOLD} -m cp '*.bam*' ~{remote_output_dir} && echo 0 || echo 1)
@@ -83,6 +86,7 @@ task DownloadBamsImpl {
     >>>
     
     output {
+        File coverage_txt = work_dir + "/coverage.txt"
     }
     runtime {
         docker: "fcunial/smaht_experiments"

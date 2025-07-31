@@ -64,10 +64,10 @@ task DownloadBamsImpl {
         ACCESS_KEY_SECRET=$(head -n 1 ~{access_key_csv} | cut -d , -f 2)
         
         # Downloading, using the command suggested by SMaHT.
-        cut -f 1,3 ~{manifest_tsv} | tail -n +4 | grep -v '^#' > list.txt
+        cut -f 1,3 ~{manifest_tsv} | tail -n +4 | tr '\t' ',' > list.txt
         while read LINE; do
-            PATTERN=$(echo ${LINE} | cut -f 1)
-            FILENAME=$(echo ${LINE} | cut -f 2)
+            PATTERN=$(echo ${LINE} | cut -d , -f 1)
+            FILENAME=$(echo ${LINE} | cut -d , -f 2)
             curl -L --user ${ACCESS_KEY_ID}:${ACCESS_KEY_SECRET} ${PATTERN} --output ${FILENAME} 
         done < list.txt
         ${TIME_COMMAND} samtools coverage *.bam > coverage.txt

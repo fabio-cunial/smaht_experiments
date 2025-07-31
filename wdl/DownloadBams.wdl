@@ -28,6 +28,7 @@ workflow DownloadBams {
     }
     
     output {
+        File coverage_txt = DownloadBamsImpl.coverage_txt
     }
 }
 

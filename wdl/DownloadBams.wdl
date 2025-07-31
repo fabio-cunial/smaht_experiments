@@ -47,12 +47,9 @@ task DownloadBamsImpl {
     }
     
     String docker_dir = "/smaht_experiments"
-    String work_dir = "/mnt/disks/cromwell_root/smaht_experiments"
     
     command <<<
         set -euxo pipefail
-        mkdir -p ~{work_dir}
-        cd ~{work_dir}
         
         GSUTIL_UPLOAD_THRESHOLD="-o GSUtil:parallel_composite_upload_threshold=150M"
         GSUTIL_DELAY_S="600"

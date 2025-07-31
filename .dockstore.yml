@@ -1,0 +1,7 @@
+version: 1.2
+workflows:
+- name: DownloadBams
+  subclass: wdl
+  publish: True
+  primaryDescriptorPath: /wdl/DownloadBams.wdl
+  testParameterFiles:

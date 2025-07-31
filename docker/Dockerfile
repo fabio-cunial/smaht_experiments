@@ -51,7 +51,8 @@ RUN apt-get -qqy update --fix-missing \
         unzip \
         python3-pycurl \
         python3-edlib \
-        pigz
+        pigz \
+        jq
         
 
 # GSUTIL

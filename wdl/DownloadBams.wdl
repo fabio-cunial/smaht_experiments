@@ -65,9 +65,12 @@ task DownloadBamsImpl {
         ACCESS_KEY_ID=$(head -n 1 ~{access_key_csv} | cut -d , -f 1)
         ACCESS_KEY_SECRET=$(head -n 1 ~{access_key_csv} | cut -d , -f 2)
         
-        # Downloading, using the SMaHT-provided command.
-        cut -f 1,3 ~{manifest_tsv} | tail -n +4 | grep -v ^# | xargs -n 2 -L 1 sh -c 'credentials=$(curl -s -L --user ${ACCESS_KEY_ID}:${ACCESS_KEY_SECRET} "$0" | jq -r ".download_credentials | {AccessKeyId, SecretAccessKey, SessionToken, download_url}") && export AWS_ACCESS_KEY_ID=$(echo $credentials | jq -r ".AccessKeyId") && export AWS_SECRET_ACCESS_KEY=$(echo $credentials | jq -r ".SecretAccessKey") && export AWS_SESSION_TOKEN=$(echo $credentials | jq -r ".SessionToken") && download_url=$(echo $credentials | jq -r ".download_url") && aws s3 cp "$download_url" "$1"'
-        
+        # Downloading, using the command suggested by SMaHT.
+        COMMAND_1='credentials=$(curl -s -L --user'
+        COMMAND_2="${ACCESS_KEY_ID}:${ACCESS_KEY_SECRET}"
+        COMMAND_3='"$0" | jq -r ".download_credentials | {AccessKeyId, SecretAccessKey, SessionToken, download_url}") && export AWS_ACCESS_KEY_ID=$(echo $credentials | jq -r ".AccessKeyId") && export AWS_SECRET_ACCESS_KEY=$(echo $credentials | jq -r ".SecretAccessKey") && export AWS_SESSION_TOKEN=$(echo $credentials | jq -r ".SessionToken") && download_url=$(echo $credentials | jq -r ".download_url") && aws s3 cp "$download_url" "$1"'
+        COMMAND_4="${COMMAND_1} ${COMMAND_2} ${COMMAND_3}"
+        cut -f 1,3 ~{manifest_tsv} | tail -n +4 | grep -v ^# | xargs -n 2 -L 1 sh -c ${COMMAND_4}
         ${TIME_COMMAND} samtools coverage *.bam > coverage.txt
         wait
         

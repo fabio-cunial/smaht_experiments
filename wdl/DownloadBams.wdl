@@ -60,6 +60,7 @@ task DownloadBamsImpl {
         N_CORES_PER_SOCKET="$(lscpu | grep '^Core(s) per socket:' | awk '{print $NF}')"
         N_THREADS=$(( 2 * ${N_SOCKETS} * ${N_CORES_PER_SOCKET} ))
         
+        
         df -h
         
         # Retrieving access key

@@ -28,6 +28,8 @@ workflow MergeAndSubsample {
             input_bais = input_bais,
             coverages = coverages,
             total_coverage = total_coverage,
+            remote_output_dir = remote_output_dir,
+            output_prefix = output_prefix,
             n_cores = n_cores,
             ram_gb = ram_gb,
             disk_size_gb = disk_size_gb

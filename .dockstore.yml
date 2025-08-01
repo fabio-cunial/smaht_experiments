@@ -5,3 +5,8 @@ workflows:
   publish: True
   primaryDescriptorPath: /wdl/DownloadBams.wdl
   testParameterFiles:
+- name: MergeAndSubsample
+  subclass: wdl
+  publish: True
+  primaryDescriptorPath: /wdl/MergeAndSubsample.wdl
+  testParameterFiles:

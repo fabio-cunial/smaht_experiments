@@ -10,3 +10,8 @@ workflows:
   publish: True
   primaryDescriptorPath: /wdl/MergeAndSubsample.wdl
   testParameterFiles:
+- name: Sniffles
+  subclass: wdl
+  publish: True
+  primaryDescriptorPath: /wdl/Sniffles.wdl
+  testParameterFiles:

@@ -123,3 +123,8 @@ RUN wget https://github.com/arq5x/bedtools2/releases/download/v${bedtools_versio
     && chmod +x bedtools \
     && mv bedtools /usr/local/bin \
     && bedtools --help
+
+# SNIFFLES
+ARG sniffles_version=2.6.3
+RUN pip3 install sniffles==${sniffles_version} \
+    && sniffles -h

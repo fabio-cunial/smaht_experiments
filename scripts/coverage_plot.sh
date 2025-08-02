@@ -11,19 +11,21 @@ bedtools complement -i ${TR_BED} -g ${REFERENCE_FAI} > nontr.bed
 
 # SMHT001
 TOTAL_CALLS=$(bcftools view --no-header --regions ${REGIONS} ${INPUT_DIR}/SMHT001_010_sniffles.vcf.gz | wc -l)
-INS_CALLS=$(bcftools view --no-header --regions ${REGIONS} ${INPUT_DIR}/SMHT001_010_sniffles.vcf.gz | grep 'SVTYPE=INS' | wc -l)
-DEL_CALLS=$(bcftools view --no-header --regions ${REGIONS} ${INPUT_DIR}/SMHT001_010_sniffles.vcf.gz | grep 'SVTYPE=DEL' | wc -l)
+INS_CALLS=$(bcftools filter --include "SVTYPE=INS" --regions ${REGIONS} ${INPUT_DIR}/SMHT001_010_sniffles.vcf.gz | wc -l)
+DEL_CALLS=$(bcftools filter --include "SVTYPE=DEL" --regions ${REGIONS} ${INPUT_DIR}/SMHT001_010_sniffles.vcf.gz | wc -l)
+BND_CALLS=$(bcftools filter --include "SVTYPE=BND" --regions ${REGIONS} ${INPUT_DIR}/SMHT001_010_sniffles.vcf.gz | wc -l)
 INSIDE_TR=$(bcftools view --no-header --regions-file ${TR_BED} --regions-overlap pos ${INPUT_DIR}/SMHT001_010_sniffles.vcf.gz | wc -l)
 OUTSIDE_TR=$(bcftools view --no-header --regions-file nontr.bed --regions-overlap pos ${INPUT_DIR}/SMHT001_010_sniffles.vcf.gz | wc -l)
-echo "${COVERAGE},${TOTAL_CALLS},${INS_CALLS},${DEL_CALLS},${INSIDE_TR},${OUTSIDE_TR}" > SMHT001_counts.csv
+echo "${COVERAGE},${TOTAL_CALLS},${INS_CALLS},${DEL_CALLS},${BND_CALLS},${INSIDE_TR},${OUTSIDE_TR}" > SMHT001_counts.csv
 
 # ST001
 rm -f ST001_counts.csv
 for COVERAGE in $(seq 10 10 ${MAX_COVERAGE}); do
     TOTAL_CALLS=$(bcftools view --no-header --regions ${REGIONS} ${INPUT_DIR}/ST001_${COVERAGE}_sniffles.vcf.gz | wc -l)
-    INS_CALLS=$(bcftools view --no-header --regions ${REGIONS} ${INPUT_DIR}/ST001_${COVERAGE}_sniffles.vcf.gz | grep 'SVTYPE=INS' | wc -l)
-    DEL_CALLS=$(bcftools view --no-header --regions ${REGIONS} ${INPUT_DIR}/ST001_${COVERAGE}_sniffles.vcf.gz | grep 'SVTYPE=DEL' | wc -l)
+    INS_CALLS=$(bcftools filter --include "SVTYPE=INS" --regions ${REGIONS} ${INPUT_DIR}/ST001_${COVERAGE}_sniffles.vcf.gz | wc -l)
+    DEL_CALLS=$(bcftools filter --include "SVTYPE=DEL" --regions ${REGIONS} ${INPUT_DIR}/ST001_${COVERAGE}_sniffles.vcf.gz | wc -l)
+    BND_CALLS=$(bcftools filter --include "SVTYPE=BND" --regions ${REGIONS} ${INPUT_DIR}/ST001_${COVERAGE}_sniffles.vcf.gz | wc -l)
     INSIDE_TR=$(bcftools view --no-header --regions-file ${TR_BED} --regions-overlap pos ${INPUT_DIR}/ST001_${COVERAGE}_sniffles.vcf.gz | wc -l)
     OUTSIDE_TR=$(bcftools view --no-header --regions-file nontr.bed --regions-overlap pos ${INPUT_DIR}/ST001_${COVERAGE}_sniffles.vcf.gz | wc -l)
-    echo "${COVERAGE},${TOTAL_CALLS},${INS_CALLS},${DEL_CALLS},${INSIDE_TR},${OUTSIDE_TR}" >> ST001_counts.csv
+    echo "${COVERAGE},${TOTAL_CALLS},${INS_CALLS},${DEL_CALLS},${BND_CALLS},${INSIDE_TR},${OUTSIDE_TR}" >> ST001_counts.csv
 done

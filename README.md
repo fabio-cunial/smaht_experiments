@@ -12,7 +12,9 @@ We consider the following input:
 For each ST001 technology, we merge all the BAMs, we take random samples at multiples of 10x, and on every such subsample we run `sniffles --mosaic` requiring just two reads to support a call (in particular, we set `--mosaic-af-min` as a function of coverage). We only output calls that Sniffles considers somatic, i.e. that have `--mosaic-af-max=0.218` (the default). Each call is annotated with the IDs of the reads that support it.
 
 ## SMHT001
-There are only 14 calls, all of which except one occur in a TR. Examples of some potential candidates:
+There are only 14 calls, all of which except one occur in a TR. 
+
+### Potential candidates
 
 ![](figures/5.png)
 ![](figures/6.png)
@@ -20,13 +22,13 @@ There are only 14 calls, all of which except one occur in a TR. Examples of some
 ![](figures/10.png)
 ![](figures/14.png)
 
-Some calls seem unlikely to be somatic, e.g.:
+### Calls unlikely to be somatic
 
 ![](figures/1.png)
 ![](figures/2.png)
 ![](figures/9.png)
 
-Some calls seem to be sorrounded by complex events:
+### Calls near complex events
 
 ![](figures/3.png)
 ![](figures/7.png)

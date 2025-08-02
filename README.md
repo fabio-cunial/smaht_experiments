@@ -10,10 +10,10 @@ We consider the following input:
 * `ST001`: healthy liver sample, sequenced at ~230x with PacBio Revio (this includes a ~26x Fiber-seq BAM) and at ~210x with ONT PromethION 24 (coverages estimated from chr1). Data downloaded from [the benchmarking section of the data portal](https://data.smaht.org/data/benchmarking/donor-st001#liver).
 * `SMHT001`: death caused by liver failure, alcohol abuse as a death circumstance. Sequenced at ~10x with PacBio Revio. Data downloaded from workspace [SMaHT_Short_Read_Long_Read_Analysis](https://app.terra.bio/#workspaces/smaht-gcc-short-read/SMaHT_Short_Read_Long_Read_Analysis/data), table `SMAHT001_collaborator_long_read`, field `sample_collaborator_id=SMHT001-3I-001A2`.
 
-For each ST001 technology, we merge all the BAMs, we take random samples at multiples of 10x, and on every such subsample we run `sniffles --mosaic` requiring just two reads to support a call (in particular, we set `--mosaic-af-min` as a function of coverage). We only output calls that Sniffles considers somatic, i.e. that have `--mosaic-af-max=0.218` (the default). Each call is annotated with the IDs of the reads that support it.
+For each ST001 technology, we merge all the BAMs, we take random samples at multiples of 10x, and on every such subsample we run `sniffles --mosaic` requiring just two reads to support a call (in particular, we set `--mosaic-af-min` as a function of coverage). We only output calls that Sniffles considers somatic, i.e. that have `--mosaic-af-max=0.218` (the default). Each call is annotated with the IDs of the reads that support it. We only consider calls in the main chromosomes.
 
-## SMHT001
-There are only 14 calls, all of which except one occur in a TR. 
+## SMHT001 PacBio
+There are only 14 total calls, all of which except one occur in a TR. 
 
 ### Potential candidates
 

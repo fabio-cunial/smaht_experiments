@@ -50,7 +50,7 @@ workflow Sniffles {
 # Performance on a machine with 16 cores and 32 GB of RAM:
 #
 # COVERAGE  CPU%    TIME    RAM
-# 10x
+# 10x       450%    2m      200M
 #
 task SnifflesImpl {
     input {

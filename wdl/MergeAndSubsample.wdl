@@ -40,14 +40,21 @@ workflow MergeAndSubsample {
 }
 
 
+# Performance on a set of 550x PacBio BAMs (~670GB total) on a VM with 8 cores
+# and 32G of RAM:
+#
+# COMMAND               CPU%    TIME        RAM
+# samtools merge        460%    2h46m       30M
+# samtools index        200%    50m         200M
+#
 task Merge {
     input {
         Array[File] input_bams
         Array[File] input_bais
         
-        Int n_cores
-        Int ram_gb
-        Int disk_size_gb
+        Int n_cores = 6
+        Int ram_gb = 4
+        Int disk_size_gb = 1000
     }
     parameter_meta {
     }
@@ -88,6 +95,13 @@ task Merge {
 }
 
 
+# Performance on a set of 550x PacBio BAMs (~670GB total) on a VM with 4 cores
+# and 8G of RAM, subsampling to ~80x:
+#
+# COMMAND               CPU%    TIME        RAM
+# samtools view         300%    1.5h        13M
+# samtools index        200%    20m         70M
+#
 task Subsample {
     input {
         File merged_bam
@@ -97,9 +111,9 @@ task Subsample {
         String remote_output_dir
         String output_prefix
         
-        Int n_cores
-        Int ram_gb
-        Int disk_size_gb
+        Int n_cores = 4
+        Int ram_gb = 8
+        Int disk_size_gb = 1000
     }
     parameter_meta {
     }

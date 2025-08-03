@@ -14,16 +14,15 @@ For each ST001 technology, we merge all the BAMs, we take random samples at mult
 
 ![](figures/15.png)
 
-SMHT001 (the diseased liver, circles)  does not have more raw calls than ST001:
-![](figures/16.png)
+At 10x, SMHT001 (liver failure, circles)  does not have more raw calls than ST001:
+<img src="./figures/16.png" width="300" height="319"/>
 
-SV length and AF disribution:
 ![](figures/17.png)
 ![](figures/18.png)
 
 
 
-## SMHT001 PacBio
+## SMHT001 PacBio (liver failure)
 There are only 14 total calls, all of which except one occur in a TR. 
 
 ### Potential candidates

@@ -12,6 +12,17 @@ We consider the following input:
 
 For each ST001 technology, we merge all the BAMs, we take random samples at multiples of 10x, and on every such subsample we run `sniffles --mosaic` *requiring just two reads* to support a call (.e. we set `--mosaic-af-min` as a function of coverage). We only output calls that Sniffles considers somatic, i.e. that have `--mosaic-af-max=0.218` (the default). Each call is annotated with the IDs of the reads that support it. We only consider calls in the standard chromosomes.
 
+![](figures/15.png)
+
+SMHT001 (the diseased liver, circles)  does not have more raw calls than ST001:
+![](figures/16.png)
+
+SV length and AF disribution:
+![](figures/17.png)
+![](figures/18.png)
+
+
+
 ## SMHT001 PacBio
 There are only 14 total calls, all of which except one occur in a TR. 
 

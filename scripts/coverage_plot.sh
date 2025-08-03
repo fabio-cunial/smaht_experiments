@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 INPUT_DIR="../vcfs"
-MAX_COVERAGE="90"
+MAX_COVERAGE="230"
 REGIONS="chr1,chr2,chr3,chr4,chr5,chr6,chr7,chr8,chr9,chr10,chr11,chr12,chr13,chr14,chr15,chr16,chr17,chr18,chr19,chr20,chr21,chr22,chrX,chrY,chrM"
 TR_BED="/Users/fcunial/Downloads/human_GRCh38_no_alt_analysis_set.trf.sorted.bed"
 REFERENCE_FAI="/Users/fcunial/Downloads/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa.fai"

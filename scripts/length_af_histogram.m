@@ -1,7 +1,7 @@
 FONT_SIZE=16;
 
-A=load('ST001_230_lengths.csv');
-B=load('ST001_230_support_vaf.csv');
+A=load('ST001_fullcov_lengths.csv');
+B=load('ST001_fullcov_support_vaf.csv');
 
 
 # SVLEN
@@ -18,7 +18,7 @@ legend('DEL','INS','location','northeast'); grid on; set(gca,'fontsize',FONT_SIZ
 figure(2); 
 
 subplot(1,2,1); hold on;
-hist(B(:,1),100);
+hist(B(:,1),200);
 xlabel('Number of supporting reads'); ylabel('Number of raw calls'); title('ST001 - PacBio 230x');
 axis square; grid on; set(gca,'fontsize',FONT_SIZE);
 

@@ -16,7 +16,7 @@ For each ST001 technology, we merge all the BAMs, we take random samples at mult
 ![](figures/16.png)
 Circles: 10x SMHT001 (liver failure). In the 230x ST001 VCF, TR calls do not seem to be enriched in specific TR intervals (according to `bedtools intersect -c`).
 
-![](figures/25.png)
+<img src="./figures/25.png" width="300" height="319"/>
 
 ![](figures/17.png)
 ![](figures/18.png)

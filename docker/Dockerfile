@@ -52,7 +52,8 @@ RUN apt-get -qqy update --fix-missing \
         python3-pycurl \
         python3-edlib \
         pigz \
-        jq
+        jq \
+        python2
         
 
 # GSUTIL
@@ -67,6 +68,7 @@ ENV PATH=${work_dir}/google-cloud-sdk/bin:${PATH}
 # AWS
 RUN wget https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip \
     && unzip awscli-exe-linux-x86_64.zip \
+    && rm -f awscli-exe-linux-x86_64.zip \
     && ./aws/install \
     && aws --version
 
@@ -128,3 +130,11 @@ RUN wget https://github.com/arq5x/bedtools2/releases/download/v${bedtools_versio
 ARG sniffles_version=2.6.3
 RUN pip3 install sniffles==${sniffles_version} \
     && sniffles -h
+
+# MANTA
+ARG manta_version=1.6.0
+RUN wget https://github.com/Illumina/manta/releases/download/v${manta_version}/manta-${manta_version}.centos6_x86_64.tar.bz2 \
+    && tar xjf manta-${manta_version}.centos6_x86_64.tar.bz2 \
+    && rm -f manta-${manta_version}.centos6_x86_64.tar.bz2 \
+    && mv manta-${manta_version}.centos6_x86_64/ manta/ \
+    && python2 ./manta/bin/configManta.py || echo 1

@@ -3,7 +3,7 @@
 
 [Metadata of all SMaHT samples](https://docs.google.com/spreadsheets/d/11T_QpVq4XEfupEeGD9IW5oVt1our6u3KzEtP6LBEc5w/edit?usp=sharing) at the time of this study.
 
-# Liver
+# Liver, long reads.
 
 We consider the following input:
 
@@ -56,3 +56,19 @@ There are only 14 total calls, all of which except one occur in a TR.
 
 ![](figures/3.png)
 ![](figures/7.png)
+
+
+
+
+# Liver, short reads.
+
+We consider the following input:
+
+* `ST001`: healthy liver sample, sequenced at ~122x with Illumina NovaSeq X. Data downloaded from [the benchmarking section of the data portal](https://data.smaht.org/data/benchmarking/donor-st001#liver), file accession [SMAFILE7Y4Y9](https://data.smaht.org/output-files/b784cb52-f497-4113-b341-813ee0e6d700/).
+* `SMHT001`: Sequenced at ~124x with Illumina NovaSeq X. Data downloaded from workspace [SMaHT_Benchmarking_Short_Read](https://app.terra.bio/#workspaces/smaht-gcc-short-read/SMaHT_Benchmarking_Short_Read/data), table `SMAHT001_collaborator_short_read`, field `SMAHT001_collaborator_short_read_id=SM-OLQZF`, fields `collaborator_sample_id=SMHT001-3I-001A1`.
+
+We run the following SV callers:
+* [Manta](https://github.com/Illumina/manta?tab=readme-ov-file) in single-BAM somatic mode ([experimental](https://github.com/Illumina/manta/blob/master/docs/userGuide/README.md#introduction)).
+* [GRIDSS](https://github.com/PapenfussLab/gridss?tab=readme-ov-file) in single-sample mode. This is unlikely to outputs somatic calls, since the [readme suggests](https://github.com/PapenfussLab/gridss?tab=readme-ov-file#how-do-i-perform-tumournormal-somatic-variant-calling) to jointly call on all samples from a patient. We should also run `gridss_somatic_filter` at the end, but this seems to [require](https://github.com/PapenfussLab/gridss?tab=readme-ov-file#how-do-i-create-the-panel-of-normals-required-by-gridss_somatic_filter) a panel of normals since it still assumes a tumor/normal setting. 
+
+Delly [requires](https://github.com/dellytools/delly#somatic-sv-calling) matched tumor/normal samples as well, so we don't run it.

@@ -21,6 +21,10 @@ Circles: 10x SMHT001 (liver failure). In the 230x ST001 VCF, TR calls do not see
 ![](figures/17.png)
 ![](figures/18.png)
 
+Running sniffles with a constant min allele frequency (`--mosaic-af-min 0.05`, the default) shows a peak at 100x instead:
+
+![](figures/26.png)
+
 
 ## ST001 PacBio (healthy)
 Examples of calls of length >6k in the 230x VCF:
@@ -71,4 +75,13 @@ We run the following SV callers:
 * [Manta](https://github.com/Illumina/manta?tab=readme-ov-file) in single-BAM somatic mode ([experimental](https://github.com/Illumina/manta/blob/master/docs/userGuide/README.md#introduction)).
 * [GRIDSS](https://github.com/PapenfussLab/gridss?tab=readme-ov-file) in single-sample mode. This is unlikely to outputs somatic calls, since the [readme suggests](https://github.com/PapenfussLab/gridss?tab=readme-ov-file#how-do-i-perform-tumournormal-somatic-variant-calling) to jointly call on all samples from a patient. We should also run `gridss_somatic_filter` at the end, but this seems to [require](https://github.com/PapenfussLab/gridss?tab=readme-ov-file#how-do-i-create-the-panel-of-normals-required-by-gridss_somatic_filter) a panel of normals since it still assumes a tumor/normal setting. 
 
-Delly [requires](https://github.com/dellytools/delly#somatic-sv-calling) matched tumor/normal samples as well, so we don't run it.
+Delly seems to [require](https://github.com/dellytools/delly#somatic-sv-calling) matched tumor/normal samples, so we don't run it.
+
+
+
+## SMHT001 (liver failure)
+
+I IGV'd each one of the top 50 expressed genes in the liver according to [GTEx](https://www.gtexportal.org/home/tissue/Liver), but I could only find SVs in C1R and HPD that are germline (I checked other tissues from the same donor and they appear there as well).
+
+![](figures/27.png)
+![](figures/28.png)

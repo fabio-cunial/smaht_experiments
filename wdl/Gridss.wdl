@@ -130,7 +130,11 @@ task GridssImpl {
         TIME_COMMAND="/usr/bin/time --verbose"
         df -h
         
-        ${TIME_COMMAND} gridss --threads ${N_THREADS} --jvmheap $(( ~{ram_gb} - 2 ))G --reference ~{reference_fa} --assembly assembly.bam --output out.vcf.gz ~{input_bam}
+        mv ~{input_bam} .
+        mv ~{input_bai} .
+        ls -laht
+        INPUT_FILE=$( find . -type f -maxdepth 1 -name "*.bam" -o -name "*.cram" )
+        ${TIME_COMMAND} gridss --threads ${N_THREADS} --jvmheap $(( ~{ram_gb} - 2 ))G --reference ~{reference_fa} --assembly assembly.bam --output out.vcf.gz ${INPUT_FILE}
         ls -laht
         tree
         ${TIME_COMMAND} bcftools sort -m $(( ~{ram_gb} - 2 ))G --output-type z --output ~{sample_id}_gridss.vcf.gz out.vcf.gz

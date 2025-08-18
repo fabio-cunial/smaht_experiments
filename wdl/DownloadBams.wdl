@@ -7,6 +7,7 @@ workflow DownloadBams {
         File access_key_csv
         File manifest_tsv
         String remote_output_dir
+        Int compute_coverage = 0
         
         Int n_cores
         Int ram_gb
@@ -15,6 +16,7 @@ workflow DownloadBams {
     parameter_meta {
         manifest_tsv: "From the data portal"
         remote_dir: "Output directory in a remote bucket"
+        compute_coverage: "0=do not run  `samtools coverage`, which can be slow."
     }
     
     call DownloadBamsImpl {
@@ -22,6 +24,7 @@ workflow DownloadBams {
             access_key_csv = access_key_csv,
             manifest_tsv = manifest_tsv,
             remote_output_dir = remote_output_dir,
+            compute_coverage = compute_coverage,
             n_cores = n_cores,
             ram_gb = ram_gb,
             disk_size_gb = disk_size_gb
@@ -38,6 +41,7 @@ task DownloadBamsImpl {
         File access_key_csv
         File manifest_tsv
         String remote_output_dir
+        Int compute_coverage
         
         Int n_cores
         Int ram_gb
@@ -70,7 +74,10 @@ task DownloadBamsImpl {
             FILENAME=$(echo ${LINE} | cut -d , -f 2)
             curl -L --user ${ACCESS_KEY_ID}:${ACCESS_KEY_SECRET} ${ADDRESS} --output ${FILENAME} 
         done < list.txt
-        ${TIME_COMMAND} samtools coverage *.bam > coverage.txt
+        touch coverage.txt
+        if [ ~{compute_coverage} -ne 0 ]; then
+            ${TIME_COMMAND} samtools coverage *.bam > coverage.txt
+        fi
         
         # Uploading
         while : ; do

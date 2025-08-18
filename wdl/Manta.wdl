@@ -68,7 +68,7 @@ task MantaImpl {
         baseline_alignments: "BAM or CRAM. Fed to the `--normalBam` flag."
     }
     
-    Int disk_size_gb = ceil(size(input_alignments, "GB")) + ceil(size(reference_fa, "GB")) + 200
+    Int disk_size_gb = ceil(size(input_alignments, "GB")) + ceil(size(baseline_alignments, "GB")) + ceil(size(reference_fa, "GB")) + 200
     String docker_dir = "/smaht_experiments"
 
     command <<<

@@ -41,6 +41,16 @@ Examples of calls of length >6k in the 230x VCF:
 ![](figures/23.png)
 ![](figures/24.png)
 
+We IGV'd in the 230x BAM each one of the top 50 expressed genes in the liver according to [GTEx](https://www.gtexportal.org/home/tissue/Liver), and we saw a large number of haplotypes in some TRs:
+
+![](figures/29.png)
+![](figures/30.png)
+![](figures/31.png)
+![](figures/32.png)
+
+
+
+
 
 
 ## SMHT001 PacBio (liver failure)
@@ -64,6 +74,22 @@ There are only 14 total calls, all of which except one occur in a TR.
 
 ![](figures/3.png)
 ![](figures/7.png)
+
+
+
+## Tandem repeat analysis
+
+https://pmc.ncbi.nlm.nih.gov/articles/PMC12339610/
+
+https://trtools.readthedocs.io/en/stable/source/prancSTR.html
+
+https://academic.oup.com/bioinformatics/article/40/8/btae485/7723996
+
+TR and liver: https://research.edgehill.ac.uk/en/publications/length-of-variable-numbers-of-tandem-repeats-in-the-carboxyl-este#:~:text=Length%20of%20Variable%20Numbers%20of%20Tandem%20Repeats,M%C3%B6ssner%2C%20Claudia%20Ruffert%2C%20Mario%20Krehan%2C%20Christian%20Zapf
+
+https://pubmed.ncbi.nlm.nih.gov/40004542/
+
+https://www.mdpi.com/2073-4425/16/2/213
 
 
 

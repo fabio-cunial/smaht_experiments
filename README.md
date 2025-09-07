@@ -162,25 +162,38 @@ PacBio reads can also show the 5mC status of TRs (examples from ST001 230x PacBi
 
 We extract reads from the ST001 230x PacBio BAM with hapestry's sommand:
 ```
-extract_reads_from_windows --output_dir ./reads_with_q/ --bam_csv ${SAMPLES_LIST} --windows ${FLANKED_WINDOWS_BED} --bam_not_hardclipped --flank_length 0 --fetch_max_length 100000 --get_qualities --tags NM --n_threads 1 --force_forward
+extract_reads_from_windows --output_dir ./reads_with_q/ \
+	--bam_csv ${SAMPLES_LIST} \
+	--windows ${FLANKED_WINDOWS_BED} \
+	--bam_not_hardclipped \
+	--flank_length 0 \
+	--fetch_max_length 100000 \
+	--get_qualities \
+	--tags NM \
+	--n_threads 1 \
+	--force_forward
 ```
 enabling and disabling `--require_spanning` as needed. We then load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). Note that a multiple sequence alignment automatically hides all germline homs, and puts all the germline hets in the same cluster.
 
+### chr1:16563818-16567204
 To simplify the visualization, in the following we only show reads that span the window:
 
 ![](figures/33.png)
 ![](figures/44.png)
 
+### chr4:99305502-99305645
 The following INS seems to be homozygous, since it appears frequently in the BAM and is hidden in the MSA. Only one read seems to have a large INS in the MSA (which shows the right end of the window):
 
 ![](figures/39.png)
 ![](figures/45.png)
 
+### chr19:3971709-3975587
 The INS and DEL in the BAM seem to be homozygous, since they do not appear in the MSA. The latter only contains small variation in a homopolymer:
 
 ![](figures/35.png)
 ![](figures/46.png)
 
+### chr19:3988584-3990151
 Every alignment in the BAM seems to be affected either by the large INS or by soft-clips. The MSA shows that every spanning read is equivalent. However, non-spanning reads are all suspiciously cut at the same position, which might indicate a fetching error (the white at the top corresponds to reads that align on the right side of the INS but are cut right at the INS).
 
 ![](figures/47.png)
@@ -190,8 +203,6 @@ Every alignment in the BAM seems to be affected either by the large INS or by so
 ---
 
 ## To do
-
-Yulia's plot on TRs
 
 https://pmc.ncbi.nlm.nih.gov/articles/PMC12339610/
 

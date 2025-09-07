@@ -160,7 +160,11 @@ PacBio reads can also show the 5mC status of TRs (examples from ST001 230x PacBi
 
 ## Multiple sequence alignment of the reads
 
-We extract reads from the ST001 230x PacBio BAM with hapestry's  `extract_reads_from_windows --flank_length 0 --fetch_max_length 100000  --force_forward`, enabling and disabling `--require_spanning`. We then load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). Note that a multiple sequence alignment automatically hides all homozygous variation, and puts all the heterozygous variation in the same cluster.
+We extract reads from the ST001 230x PacBio BAM with hapestry's sommand:
+```
+extract_reads_from_windows --output_dir ./reads_with_q/ --bam_csv ${SAMPLES_LIST} --windows ${FLANKED_WINDOWS_BED} --bam_not_hardclipped --flank_length 0 --fetch_max_length 100000 --get_qualities --tags NM --n_threads 1 --force_forward
+```
+enabling and disabling `--require_spanning` as needed. We then load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). Note that a multiple sequence alignment automatically hides all germline homs, and puts all the germline hets in the same cluster.
 
 To simplify the visualization, in the following we only show reads that span the window:
 
@@ -177,9 +181,10 @@ The INS and DEL in the BAM seem to be homozygous, since they do not appear in th
 ![](figures/35.png)
 ![](figures/46.png)
 
-Every alignment in the BAM seems to be affected either by the large INS or by soft-clips. The MSA shows that these are equivalent.
+Every alignment in the BAM seems to be affected either by the large INS or by soft-clips. The MSA shows that every spanning read is equivalent. However, non-spanning reads are all suspiciously cut at the same position, which might indicate a fetching error (the white at the top corresponds to reads that align on the right side of the INS but are cut right at the INS).
 
 ![](figures/47.png)
+![](figures/48.png)
 
 
 ---

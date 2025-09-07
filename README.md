@@ -158,6 +158,29 @@ PacBio reads can also show the 5mC status of TRs (examples from ST001 230x PacBi
 ![](figures/43.png)
 
 
+## Multiple sequence alignment of the reads
+
+We extract reads from the ST001 230x PacBio BAM with hapestry's  `extract_reads_from_windows --flank_length 0 --fetch_max_length 100000  --force_forward`, enabling and disabling `--require_spanning`. We then load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). Note that a multiple sequence alignment automatically hides all homozygous variation, and puts all the heterozygous variation in the same cluster.
+
+To simplify the visualization, in the following we only show reads that span the window:
+
+![](figures/33.png)
+![](figures/44.png)
+
+The following INS seems to be homozygous, since it appears frequently in the BAM and is hidden in the MSA. Only one read seems to have a large INS in the MSA (which shows the right end of the window):
+
+![](figures/39.png)
+![](figures/45.png)
+
+The INS and DEL in the BAM seem to be homozygous, since they do not appear in the MSA. The latter only contains small variation in a homopolymer:
+
+![](figures/35.png)
+![](figures/46.png)
+
+Every alignment in the BAM seems to be affected either by the large INS or by soft-clips. The MSA shows that these are equivalent.
+
+![](figures/47.png)
+
 
 ---
 

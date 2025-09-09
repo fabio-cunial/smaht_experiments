@@ -160,7 +160,7 @@ PacBio reads can also show the 5mC status of TRs (examples from ST001 230x PacBi
 
 ## Multiple sequence alignment of the reads
 
-We extract reads from the ST001 230x PacBio BAM with hapestry's sommand:
+We extract reads from the ST001 230x PacBio BAM with hapestry's command:
 ```
 extract_reads_from_windows --output_dir ./reads_with_q/ \
 	--bam_csv ${SAMPLES_LIST} \
@@ -173,15 +173,15 @@ extract_reads_from_windows --output_dir ./reads_with_q/ \
 	--n_threads 1 \
 	--force_forward
 ```
-enabling and disabling `--require_spanning` as needed. We then load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). Note that a multiple sequence alignment automatically hides all germline homs, and puts all the germline hets in the same cluster.
+enabling and disabling `--require_spanning` as needed. Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). Note that a multiple sequence alignment automatically hides all germline homs, and puts all the germline hets in the same cluster.
 
-### chr1:16563818-16567204
-To simplify the visualization, in the following we only show reads that span the window:
+### chr4:99305502-99305645
+We only show reads that span the window:
 
 ![](figures/33.png)
 ![](figures/44.png)
 
-### chr4:99305502-99305645
+### chr1:16563818-16567204
 The following INS seems to be homozygous, since it appears frequently in the BAM and is hidden in the MSA. Only one read seems to have a large INS in the MSA (which shows the right end of the window):
 
 ![](figures/39.png)

@@ -44,7 +44,7 @@ task Impl {
         N_THREADS=$(( 2 * ${N_SOCKETS} * ${N_CORES_PER_SOCKET} ))
         df -h
         
-        ${TIME_COMMAND} ~{docker_dir}/abPOA/bin/abpoa --aln-mode 0 --amb-strand --sort-by-len --result 3 --verbose 2 ~{reads_fa} > out.gfa
+        ${TIME_COMMAND} ~{docker_dir}/abPOA/bin/abpoa -m 0 --amb-strand --sort-by-len --result 3 --verbose 2 ~{reads_fa} > out.gfa
         ls -laht
     >>>
     

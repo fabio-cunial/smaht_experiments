@@ -202,7 +202,7 @@ Zoom in:
 We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR interval is in red):
 
 ![](figures/55.png)
-![](figures/56.png)
+<!-- ![](figures/56.png) -->
 
 
 
@@ -218,7 +218,7 @@ This TR seems to be methylated with a consistent pattern, which seems to diverge
 We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR interval is in red):
 
 ![](figures/57.png)
-![](figures/58.png)
+<!-- ![](figures/58.png) -->
 
 
 
@@ -234,7 +234,7 @@ This TR seems to be methylated with a consistent pattern, which seems to diverge
 We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR interval is in red):
 
 ![](figures/59.png)
-![](figures/60.png)
+<!-- ![](figures/60.png) -->
 
 
 

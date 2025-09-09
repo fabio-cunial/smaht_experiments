@@ -183,9 +183,19 @@ Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed o
 
 ![](figures/44.png)
 
+This TR has no 5mC marks.
+
+
 ### chr1:16563818-16567204
 
 ![](figures/49.png)
+
+This TR seems to be methylated, and to have >=2 distinct 5mC patterns (gray: FWD strand, green: REV strand):
+
+![](figures/52.png)
+
+Zoom in:
+
 ![](figures/39.png)
 
 We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph with abPOA and default parameters:
@@ -198,6 +208,10 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 
 ![](figures/50.png)
 
+This TR seems to be methylated with a consistent pattern, which seems to diverge in the clipped alignments (gray: FWD strand, green: REV strand):
+
+![](figures/53.png)
+
 We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph with abPOA and default parameters:
 
 .............
@@ -208,6 +222,10 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 ### chr19:3988584-3990151
 
 ![](figures/51.png)
+
+This TR seems to be methylated with a consistent pattern, which seems to diverge in the clipped alignments (gray: FWD strand, green: REV strand):
+
+![](figures/54.png)
 
 We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph with abPOA and default parameters:
 

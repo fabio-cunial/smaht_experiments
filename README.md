@@ -158,14 +158,20 @@ PacBio reads can also show the 5mC status of TRs (examples from ST001 230x PacBi
 ![](figures/43.png)
 
 
-## Multiple sequence alignment of the reads
+## Detailed analysis of some TR regions
 
-We extract reads from the ST001 230x PacBio BAM with hapestry's command:
+
+### chr4:99305502-99305645
+
+![](figures/33.png)
+
+We extract spanning reads from the ST001 230x PacBio BAM with hapestry's command:
 ```
 extract_reads_from_windows --output_dir ./reads_with_q/ \
 	--bam_csv ${SAMPLES_LIST} \
 	--windows ${FLANKED_WINDOWS_BED} \
 	--bam_not_hardclipped \
+	--require_spanning \
 	--flank_length 0 \
 	--fetch_max_length 100000 \
 	--get_qualities \
@@ -173,31 +179,43 @@ extract_reads_from_windows --output_dir ./reads_with_q/ \
 	--n_threads 1 \
 	--force_forward
 ```
-enabling and disabling `--require_spanning` as needed. Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). Note that a multiple sequence alignment automatically hides all germline homs, and puts all the germline hets in the same cluster.
+Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). Note that a multiple sequence alignment automatically hides all germline homs, and puts all the germline hets in the same cluster.
 
-### chr4:99305502-99305645
-We only show reads that span the window:
-
-![](figures/33.png)
 ![](figures/44.png)
 
 ### chr1:16563818-16567204
-The following INS seems to be homozygous, since it appears frequently in the BAM and is hidden in the MSA. Only one read seems to have a large INS in the MSA (which shows the right end of the window):
 
+![](figures/49.png)
 ![](figures/39.png)
-![](figures/45.png)
+
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph with abPOA and default parameters:
+
+........
+
+
 
 ### chr19:3971709-3975587
-The INS and DEL in the BAM seem to be homozygous, since they do not appear in the MSA. The latter only contains small variation in a homopolymer:
 
-![](figures/35.png)
-![](figures/46.png)
+![](figures/50.png)
+
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph with abPOA and default parameters:
+
+.............
+
+
+
 
 ### chr19:3988584-3990151
-Every alignment in the BAM seems to be affected either by the large INS or by soft-clips. The MSA shows that every spanning read is equivalent. However, non-spanning reads are all suspiciously cut at the same position, which might indicate a fetching error (the white at the top corresponds to reads that align on the right side of the INS but are cut right at the INS).
 
-![](figures/47.png)
-![](figures/48.png)
+![](figures/51.png)
+
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph with abPOA and default parameters:
+
+.............
+
+
+
+
 
 
 ---
@@ -215,3 +233,14 @@ TR and liver: https://research.edgehill.ac.uk/en/publications/length-of-variable
 https://pubmed.ncbi.nlm.nih.gov/40004542/
 
 https://www.mdpi.com/2073-4425/16/2/213
+
+
+---
+
+Hapestry fetching errors:
+
+### chr1:16563818-16567204
+Among all spanning reads, only one seems to contain the large INS in the MSA (the figure shows the right end of the window). This seems to be an error in fetching with spanning mode.
+
+![](figures/39.png)
+![](figures/45.png)

@@ -138,3 +138,13 @@ RUN wget https://github.com/Illumina/manta/releases/download/v${manta_version}/m
     && rm -f manta-${manta_version}.centos6_x86_64.tar.bz2 \
     && mv manta-${manta_version}.centos6_x86_64/ manta/ \
     && python2 ./manta/bin/configManta.py || echo 1
+
+# ABPOA
+ARG abpoa_version=1.5.4
+RUN wget https://github.com/yangao07/abPOA/releases/download/v${abpoa_version}/abPOA-v${abpoa_version}.tar.gz \
+    && tar -zxvf abPOA-v${abpoa_version}.tar.gz \
+    && rm -f abPOA-v${abpoa_version}.tar.gz \
+    && mv abPOA-v${abpoa_version} abPOA \
+    && cd abPOA \
+    && make -j 16 \
+    && ./bin/abpoa --help || echo "1"

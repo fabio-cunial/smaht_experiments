@@ -249,7 +249,9 @@ The gene seems to have >=2 methylation patterns, which are altered in clipped al
 
 We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the gene sequence in the reference is in red):
 
-
+![](figures/63.png)
+![](figures/64.png)
+![](figures/65.png)
 
 
 ---

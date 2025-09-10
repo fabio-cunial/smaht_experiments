@@ -256,14 +256,3 @@ TR and liver: https://research.edgehill.ac.uk/en/publications/length-of-variable
 https://pubmed.ncbi.nlm.nih.gov/40004542/
 
 https://www.mdpi.com/2073-4425/16/2/213
-
-
----
-
-Hapestry fetching errors:
-
-### chr1:16563818-16567204
-Among all spanning reads, only one seems to contain the large INS in the MSA (the figure shows the right end of the window). This seems to be an error in fetching with spanning mode.
-
-![](figures/39.png)
-![](figures/45.png)

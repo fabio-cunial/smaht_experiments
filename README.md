@@ -199,7 +199,7 @@ Zoom in:
 
 ![](figures/39.png)
 
-We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR interval is in red):
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
 
 ![](figures/55.png)
 <!-- ![](figures/56.png) -->
@@ -215,7 +215,7 @@ This TR seems to be methylated with a consistent pattern, which seems to diverge
 
 ![](figures/53.png)
 
-We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR interval is in red):
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
 
 ![](figures/57.png)
 <!-- ![](figures/58.png) -->
@@ -231,12 +231,23 @@ This TR seems to be methylated with a consistent pattern, which seems to diverge
 
 ![](figures/54.png)
 
-We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR interval is in red):
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
 
 ![](figures/59.png)
 <!-- ![](figures/60.png) -->
 
 
+
+
+### GCKR
+
+![](figures/61.png)
+
+The gene seems to have >=2 methylation patterns, which are altered in clipped alignments.
+
+![](figures/62.png)
+
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the gene sequence in the reference is in red):
 
 
 

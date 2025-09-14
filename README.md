@@ -266,6 +266,13 @@ See directory `figures/ng_et_al_2021`.
 
 
 
+## Characterizing reads with clipped alignments
+
+There seem to be several PacBio reads that have clipped alignments. These seem to be even more frequent in ONT.
+
+
+
+
 
 
 ---

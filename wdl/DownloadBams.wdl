@@ -80,8 +80,16 @@ task DownloadBamsImpl {
         fi
         
         # Uploading
+        N_BAMS=$(find . -maxdepth 1 -name '*.bam' | wc -l)
+        N_CRAMS=$(find . -maxdepth 1 -name '*.cram' | wc -l)
+        EXTENSION=""
+        if [ ${N_BAMS} -gt 0 -a ${N_CRAMS} -eq 0 ]; then
+            EXTENSION="bam"
+        elif [ ${N_BAMS} -eq 0 -a ${N_CRAMS} -gt 0 ]; then
+            EXTENSION="cram"
+        fi
         while : ; do
-            TEST=$(gsutil ${GSUTIL_UPLOAD_THRESHOLD} -m cp '*.bam*' ~{remote_output_dir} && echo 0 || echo 1)
+            TEST=$(gsutil ${GSUTIL_UPLOAD_THRESHOLD} -m cp '*.'${EXTENSION}'*' ~{remote_output_dir} && echo 0 || echo 1)
             if [[ ${TEST} -eq 1 ]]; then
                 echo "Error uploading files. Trying again..."
                 sleep ${GSUTIL_DELAY_S}

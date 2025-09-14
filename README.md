@@ -254,6 +254,20 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 ![](figures/65.png)
 
 
+
+
+
+## Genes from Ng et al. 2021
+
+Ng, Stanley WK, et al. "[Convergent somatic mutations in metabolism genes in chronic liver disease.](https://www.nature.com/articles/s41586-021-03974-6)" Nature 598.7881 (2021): 473-478.
+
+See directory `figures/ng_et_al_2021`.
+
+
+
+
+
+
 ---
 
 ## To do

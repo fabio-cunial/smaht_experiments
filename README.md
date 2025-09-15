@@ -263,7 +263,17 @@ Ng, Stanley WK, et al. "[Convergent somatic mutations in metabolism genes in chr
 
 See directory `figures/ng_et_al_2021`.
 
+Interestingly every one of their short-read samples is just 31x, but they do take multiple microdissections from the same liver, at controlled distances between microdissections (to probe different clones and prove convergent mutation). It's also interesting that they find structural variants at or near AVCR2A, GPAM, FOXO1, and that they estimate telomere lengths (another analysis for which long reads may be superior).
 
+
+
+## Genes from Russell Goodman
+
+Genes with clear associations with liver disease, for example, are either known genetic risk factors for fatty liver disease, or protect from alcohol-related liver disease. The Goodman lab has interests, tools and techniques to study GCKR, ADH1B, and MLXIPL, so any novel biology related to those three genes would have the lowest activation energy for mechanistic studies.
+
+```
+PNPLA3, TM6SF2, APOE, GCKR, TRIB1, GPAM, MARC1, MTTP, ADH1B, TOR1B, TMC4/MBOAT7, COBLL1, SREBF1, INSR, FTO, PNPLA2, MTARC1, MLXIPL, ADH1C, HFE, ATP7B, FRZB, IL18RAP, FLT3, GDF15, HGFAC, FSTL3, INHBA, INHBB
+```
 
 
 ## Characterizing reads with clipped alignments
@@ -271,7 +281,7 @@ See directory `figures/ng_et_al_2021`.
 There seem to be several PacBio reads that have clipped alignments. These seem to be even more frequent in ONT.
 
 
-
+## Telomere length analysis
 
 
 

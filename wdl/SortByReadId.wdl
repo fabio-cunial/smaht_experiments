@@ -37,7 +37,7 @@ task Impl {
         String remote_output_dir
         
         Int n_cores = 6
-        Int ram_gb = 16
+        Int ram_gb = 64
     }
     parameter_meta {
     }

@@ -286,6 +286,11 @@ These seem to be even more frequent in ONT, but we have to make sure ONT was ali
 ## Telomere length analysis
 
 
+## Cell type deconvolution
+
+Separate reads from mature hepatocytes vs progenitors. Using methylation or Fiber-seq.
+
+
 
 ---
 

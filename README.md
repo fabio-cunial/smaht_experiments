@@ -278,7 +278,9 @@ PNPLA3, TM6SF2, APOE, GCKR, TRIB1, GPAM, MARC1, MTTP, ADH1B, TOR1B, TMC4/MBOAT7,
 
 ## Characterizing reads with clipped alignments
 
-There seem to be several PacBio reads that have clipped alignments. These seem to be even more frequent in ONT.
+There seem to be several PacBio reads that have clipped alignments, but we need to check if they all come from one of the samples that were used to create the merge (could be a sequencing artifact or a location in the liver). 
+
+These seem to be even more frequent in ONT, but we have to make sure ONT was aligned to the same reference (see error message from header in CRAMs).
 
 
 ## Telomere length analysis

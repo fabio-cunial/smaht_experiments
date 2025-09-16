@@ -278,7 +278,20 @@ PNPLA3, TM6SF2, APOE, GCKR, TRIB1, GPAM, MARC1, MTTP, ADH1B, TOR1B, TMC4/MBOAT7,
 
 ## Characterizing reads with clipped alignments
 
-There seem to be several PacBio reads that have clipped alignments, but we need to check if they all come from one of the samples that were used to create the merge (could be a sequencing artifact or a location in the liver). 
+In the ST001 230x PacBio sample, 3.1% of all reads (i.e. 1'331'049 of 42'912'521 total) have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome (see [ClippedAlignments.java](https://github.com/fabio-cunial/smaht_experiments/blob/main/scripts/ClippedAlignments.java)). Here are some reads with clipped alignments, where colors corresponds to chromosomes (chrX=23, chrY=24, chrM=25, non-canonical=30, no alignment=0) in forward (positive) and reverse-complement (negative) orientation.
+
+![](figures/66.png)
+
+Many reads map to just one chromosome and then continue with unmapped sequence (chromosome zero in all plots). Chromosome 30 collects all non-canonical chromosomes.
+
+![](figures/67.png)
+
+We need to check if these reads all come from one of the samples that were used to create the merge (could be a sequencing artifact or a location in the liver). 
+
+
+
+
+
 
 These seem to be even more frequent in ONT, but we have to make sure ONT was aligned to the same reference (see error message from header in CRAMs).
 

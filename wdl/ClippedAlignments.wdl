@@ -61,10 +61,12 @@ task Impl {
         date
         samtools view ~{input_bam} | java ClippedAlignments > clipped_reads.csv
         date
+        ${TIME_COMMAND} gzip clipped_reads.csv
+        ls -laht
         
         # Uploading
         while : ; do
-            TEST=$(gsutil ${GSUTIL_UPLOAD_THRESHOLD} -m mv clipped_reads.csv ~{remote_output_dir} && echo 0 || echo 1)
+            TEST=$(gsutil ${GSUTIL_UPLOAD_THRESHOLD} -m mv clipped_reads.csv.gz ~{remote_output_dir} && echo 0 || echo 1)
             if [[ ${TEST} -eq 1 ]]; then
                 echo "Error uploading files. Trying again..."
                 sleep ${GSUTIL_DELAY_S}

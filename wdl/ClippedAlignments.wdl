@@ -2,20 +2,22 @@ version 1.0
 
 
 #
-workflow SortByReadId {
+workflow ClippedAlignments {
     input {
         File input_bam
-        File input_bai
         
+        File script_java
         String remote_output_dir
     }
     parameter_meta {
+        input_bam: "Sorted by read ID"
     }
+    
     
     call Impl {
         input:
             input_bam = input_bam,
-            input_bai = input_bai,
+            script_java = script_java,
             remote_output_dir = remote_output_dir
     }
     
@@ -24,25 +26,22 @@ workflow SortByReadId {
 }
 
 
-# Performance on a 230x PacBio BAMs on a VM with 6 cores and 16G of RAM:
-#
-# COMMAND               CPU%    TIME        RAM
-# 
 #
 task Impl {
     input {
         File input_bam
-        File input_bai
         
+        File script_java
         String remote_output_dir
         
-        Int n_cores = 4
-        Int ram_gb = 64
+        Int n_cores = 2
+        Int ram_gb = 16
     }
     parameter_meta {
+        input_bam: "Sorted by read ID"
     }
     
-    Int disk_size_gb = 10*ceil(size(input_bam, "GB"))
+    Int disk_size_gb = 5*( ceil(size(input_bam,"GB")) )
     String docker_dir = "/smaht_experiments"
     
     command <<<
@@ -56,15 +55,16 @@ task Impl {
         N_THREADS=$(( 2 * ${N_SOCKETS} * ${N_CORES_PER_SOCKET} ))
         df -h
         
-        # Merging
-        FILENAME=$(basename ~{input_bam})
-        FILENAME=${FILENAME%.*}
-        ${TIME_COMMAND} samtools collate -@ ${N_THREADS} -o ${FILENAME}_sorted.bam ~{input_bam}
-        # No tabix since the BAM is not sorted by POS.
+        # Printing clipped reads
+        mv ~{script_java} ./ClippedAlignments.java
+        javac ClippedAlignments.java
+        date
+        samtools view ~{input_bam} | java ClippedAlignments > clipped_reads.csv
+        date
         
         # Uploading
         while : ; do
-            TEST=$(gsutil ${GSUTIL_UPLOAD_THRESHOLD} -m mv ${FILENAME}_sorted.'bam*' ~{remote_output_dir} && echo 0 || echo 1)
+            TEST=$(gsutil ${GSUTIL_UPLOAD_THRESHOLD} -m mv clipped_reads.csv ~{remote_output_dir} && echo 0 || echo 1)
             if [[ ${TEST} -eq 1 ]]; then
                 echo "Error uploading files. Trying again..."
                 sleep ${GSUTIL_DELAY_S}
@@ -80,7 +80,7 @@ task Impl {
         docker: "fcunial/smaht_experiments"
         cpu: n_cores
         memory: ram_gb + "GB"
-        disks: "local-disk " + disk_size_gb + " HDD"
+        disks: "local-disk " + disk_size_gb + " SSD"
         preemptible: 0
     }
 }

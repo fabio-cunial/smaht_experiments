@@ -8,12 +8,11 @@ public class ClippedAlignments {
     
     
     /**
+     * The program reads from STDIN and writes to STDOUT.
+     *
      * @param args
      */
 	public static void main(String[] args) throws Exception {
-		final String INPUT_SAM = args[0];
-        final String OUTPUT_CSV = args[1];
-        
         final int CAPACITY = 100;  // Arbitrary
         final int MIN_CLIP_LENGTH = 100;  // Arbitrary
 
@@ -30,12 +29,12 @@ public class ClippedAlignments {
         
         alignments = new Alignment[CAPACITY];
         for (i=0; i<alignments.length; i++) alignments[i] = new Alignment();
-        bw = new BufferedWriter(new FileWriter(OUTPUT_CSV));
-        br = new BufferedReader(new FileReader(INPUT_SAM));
+        bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        br = new BufferedReader(new InputStreamReader(System.in));
         str=br.readLine(); currentReadId=""; lastAlignment=-1; nAlignments=0; nReads=0; nReadsWithClips=0;
         while (str!=null) {
             nAlignments++;
-            if (nAlignments%10000==0) System.err.println("Processed "+nAlignments+" alignments...");
+            if (nAlignments%10000==0) System.err.println("Processed "+nAlignments+" alignments. Total reads: "+nReads+" Reads with clipped alignments: "+nReadsWithClips+" ("+((100.0*nReadsWithClips)/nReads)+"%)");
             tokens=str.split("\t");
             leftClip=getSoftClip(tokens[5],true);
             rightClip=getSoftClip(tokens[5],false);
@@ -121,14 +120,29 @@ public class ClippedAlignments {
      */
     private static final void processAlignments(Alignment[] alignments, int lastAlignment, BufferedWriter bw, int[] tmpArray) throws IOException {
         final int QUANTUM = 10;  // Arbitrary
+        boolean found;
         int i, j;
         int numerator, denominator;
         
         nReads++;
-        if (lastAlignment>=0) nReadsWithClips++;
+        if (lastAlignment==-1) {
+            // The read has no clipped alignment
+            return;
+        }
+        found=false;
+        for (i=0; i<=lastAlignment; i++) {
+            if (alignments[i].chr.length()<=5) { found=true; break; }
+        }
+        if (!found) {
+            // The read maps only to non-canonical contigs
+            return;
+        }
+        nReadsWithClips++;
         if (lastAlignment>0) Arrays.sort(alignments,0,lastAlignment+1);
         Arrays.fill(tmpArray,0);
-        for (i=0; i<=lastAlignment; i++) alignments[i].print(tmpArray);
+        for (i=0; i<=lastAlignment; i++) {
+            alignments[i].print(tmpArray);
+        }
         for (i=0; i<tmpArray.length; i+=QUANTUM) {
             numerator=0; denominator=0;
             for (j=i; j<i+QUANTUM; j++) {
@@ -140,11 +154,13 @@ public class ClippedAlignments {
     }
     
     
-    private static int chr2int(String chr) {    
+    private static int chr2int(String chr) {
+        final int NONCANONICAL_CHR = 30;  // Arbitrary
+        
         if (chr.equalsIgnoreCase("chrX")) return 23;
         else if (chr.equalsIgnoreCase("chrY")) return 24;
         else if (chr.equalsIgnoreCase("chrM")) return 25;
-        else return chr.length()>5?Integer.MAX_VALUE:Integer.parseInt(chr.substring(3));
+        else return chr.length()>5?NONCANONICAL_CHR:Integer.parseInt(chr.substring(3));
     }
     
     

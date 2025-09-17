@@ -39,6 +39,7 @@ task Impl {
     }
     parameter_meta {
         input_bam: "Sorted by read ID"
+        remote_output_dir: "Must end with a '/', otherwise it is interpreted as a file if it does not exist."
     }
     
     Int disk_size_gb = 5*( ceil(size(input_bam,"GB")) )
@@ -56,17 +57,18 @@ task Impl {
         df -h
         
         # Printing clipped reads
+        FILE_NAME=$(basename ~{input_bam})
         mv ~{script_java} ./ClippedAlignments.java
         javac ClippedAlignments.java
         date
-        samtools view ~{input_bam} | java ClippedAlignments > clipped_reads.csv
+        samtools view ~{input_bam} | java ClippedAlignments > ${FILE_NAME}_clipped_reads.csv
         date
-        ${TIME_COMMAND} gzip clipped_reads.csv
+        ${TIME_COMMAND} gzip ${FILE_NAME}_clipped_reads.csv
         ls -laht
         
         # Uploading
         while : ; do
-            TEST=$(gsutil ${GSUTIL_UPLOAD_THRESHOLD} -m mv clipped_reads.csv.gz ~{remote_output_dir} && echo 0 || echo 1)
+            TEST=$(gsutil ${GSUTIL_UPLOAD_THRESHOLD} -m mv '*_clipped_reads.csv.gz' ~{remote_output_dir} && echo 0 || echo 1)
             if [[ ${TEST} -eq 1 ]]; then
                 echo "Error uploading files. Trying again..."
                 sleep ${GSUTIL_DELAY_S}

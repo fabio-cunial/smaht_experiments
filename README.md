@@ -318,6 +318,8 @@ c5
 c6
 ```
 
+According to the SMaHT benchmarking paper, _"a single lab prepared homogenized tissues and distributed samples to each Genome Characterization Center. Tissue homogenization ensured that the same genomic content was utilized across the centers to check for consistency and robustness."_ From the Methods: _"For
+each tissue, five 10 cm x 1 cm x 1 cm samples from defined anatomical locations in each organ were rinsed with saline, minced into several small pieces, placed in individual 50 ml conical tubes and snap frozen."_ _''To minimize regional variability and ensure consistency across sequencing centers, frozen tissues were pulverized into a powder using a pre-chilled mortar and pestle with liquid nitrogen. The homogenized material was pooled, mixed for uniformity, and aliquoted."_
 
 
 

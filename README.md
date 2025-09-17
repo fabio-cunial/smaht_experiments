@@ -278,15 +278,49 @@ PNPLA3, TM6SF2, APOE, GCKR, TRIB1, GPAM, MARC1, MTTP, ADH1B, TOR1B, TMC4/MBOAT7,
 
 ## Characterizing reads with clipped alignments
 
-In the ST001 230x PacBio sample, 3.1% of all reads (i.e. 1'331'049 of 42'912'521 total) have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome (see [ClippedAlignments.java](https://github.com/fabio-cunial/smaht_experiments/blob/main/scripts/ClippedAlignments.java)). Here are some reads with clipped alignments, where colors corresponds to chromosomes (chrX=23, chrY=24, chrM=25, non-canonical=30, no alignment=0) in forward (positive) and reverse-complement (negative) orientation.
+In the ST001 230x PacBio sample, 3.1% of all reads (i.e. 1'331'049 of 42'912'521 total) have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome (see [ClippedAlignments.java](https://github.com/fabio-cunial/smaht_experiments/blob/main/scripts/ClippedAlignments.java)). Here are some reads with clipped alignments, where colors corresponds to chromosomes in forward (positive) and reverse-complement (negative) orientation, and where:
+
+* 0 = no alignment
+* 23 = chrX
+* 24 = chrY
+* 25 = chrM
+* 30 = non-canonical
 
 ![](figures/66.png)
 
-Many reads map to just one chromosome and then continue with unmapped sequence (chromosome zero in all plots). Chromosome 30 collects all non-canonical chromosomes.
+Many reads map to just one chromosome and then continue with unmapped sequence, and many reads map to at least one non-canonical chromosome:
 
 ![](figures/67.png)
 
-We need to check if these reads all come from one of the samples that were used to create the merge (could be a sequencing artifact or a location in the liver). 
+The 230x PacBio BAM was created by merging the following 6 files provided in [the benchmarking section of the data portal](https://data.smaht.org/data/benchmarking/donor-st001#liver), where an asterisk identifies Fiber-seq samples:
+
+```
+* ST001-1A-003S3-M22-B004-uwsc-SMAFIAK7UKIU-pbmm2_1.13.0_GRCh38.aligned.sorted.bam
+ST001-1A-XX-M22-B001-bcm-SMAFI1DZ62NM-pbmm2_1.13.0_GRCh38.aligned.sorted.bam
+ST001-1A-XX-M22-B001-bcm-SMAFI9VER4C3-pbmm2_1.13.0_GRCh38.aligned.sorted.bam
+ST001-1A-XX-M22-B001-bcm-SMAFIYT6BC6F-pbmm2_1.13.0_GRCh38.aligned.sorted.bam
+ST001-1A-XX-M22-B001-broad-SMAFIFXDVRTL-pbmm2_1.13.0_GRCh38.aligned.sorted.bam
+ST001-1A-XX-M22-B001-washu-SMAFIQB3OD1L-pbmm2_1.13.0_GRCh38.aligned.sorted.bam
+```
+
+By a superficial IGV inspection, it seems that every one of these files contains clipped reads, e.g.:
+
+![](figures/68.png)
+
+By running the previous analysis on each one of these BAMs separately, we get the following counts:
+
+```
+c1
+c2
+c3
+c4
+c5
+c6
+```
+
+
+
+
 
 
 

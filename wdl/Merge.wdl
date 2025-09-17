@@ -40,6 +40,9 @@ task Merge {
         Array[File] input_bams
         Array[File] input_bais
         
+        File reference_fa
+        File reference_fai
+        
         String remote_output_dir
         String output_prefix
         

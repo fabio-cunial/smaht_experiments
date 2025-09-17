@@ -310,16 +310,21 @@ By a superficial IGV inspection, it seems that every one of these files contains
 By running the previous analysis on each BAM separately, we get the following counts:
 
 ```
-c1
-c2
-c3
-c4
-c5
-c6
+Total reads: 4226911   Reads with clipped alignments: 129911 (3.07%)
+Total reads: 4899244   Reads with clipped alignments: 129582 (2.64%)
+Total reads: 4734888   Reads with clipped alignments: 124123 (2.62%)
+Total reads: 5099541   Reads with clipped alignments: 130557 (2.56%)
+Total reads: 12125667  Reads with clipped alignments: 346787 (2.86%)
+Total reads: 11826270  Reads with clipped alignments: 470089 (3.97%)
 ```
 
-According to the SMaHT benchmarking paper, _"a single lab prepared homogenized tissues and distributed samples to each Genome Characterization Center. Tissue homogenization ensured that the same genomic content was utilized across the centers to check for consistency and robustness."_ From the Methods: _"For
-each tissue, five 10 cm x 1 cm x 1 cm samples from defined anatomical locations in each organ were rinsed with saline, minced into several small pieces, placed in individual 50 ml conical tubes and snap frozen."_ _''To minimize regional variability and ensure consistency across sequencing centers, frozen tissues were pulverized into a powder using a pre-chilled mortar and pestle with liquid nitrogen. The homogenized material was pooled, mixed for uniformity, and aliquoted."_
+From the SMaHT benchmarking manuscript, it seems that all sequencing centers got a similar mix of cells: 
+
+_"A single lab prepared homogenized tissues and distributed samples to each Genome Characterization Center. Tissue homogenization ensured that the same genomic content was utilized across the centers to check for consistency and robustness."_ 
+
+_"For each tissue, five 10 cm x 1 cm x 1 cm samples from defined anatomical locations in each organ were rinsed with saline, minced into several small pieces, placed in individual 50 ml conical tubes and snap frozen."_ 
+
+_''To minimize regional variability and ensure consistency across sequencing centers, frozen tissues were pulverized into a powder using a pre-chilled mortar and pestle with liquid nitrogen. The homogenized material was pooled, mixed for uniformity, and aliquoted."_
 
 
 

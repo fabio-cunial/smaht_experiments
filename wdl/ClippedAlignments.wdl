@@ -61,14 +61,15 @@ task Impl {
         mv ~{script_java} ./ClippedAlignments.java
         javac ClippedAlignments.java
         date
-        samtools view ~{input_bam} | java ClippedAlignments > ${FILE_NAME}_clipped_reads.csv
+        samtools view ~{input_bam} | java ClippedAlignments 1> ${FILE_NAME}_clipped_reads.csv 2> ${FILE_NAME}_clipped_reads.fa
         date
         ${TIME_COMMAND} gzip ${FILE_NAME}_clipped_reads.csv
+        ${TIME_COMMAND} gzip ${FILE_NAME}_clipped_reads.fa
         ls -laht
         
         # Uploading
         while : ; do
-            TEST=$(gsutil ${GSUTIL_UPLOAD_THRESHOLD} -m mv '*_clipped_reads.csv.gz' ~{remote_output_dir} && echo 0 || echo 1)
+            TEST=$(gsutil ${GSUTIL_UPLOAD_THRESHOLD} -m mv '*_clipped_reads.*' ~{remote_output_dir} && echo 0 || echo 1)
             if [[ ${TEST} -eq 1 ]]; then
                 echo "Error uploading files. Trying again..."
                 sleep ${GSUTIL_DELAY_S}

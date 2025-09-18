@@ -275,8 +275,14 @@ Genes with clear associations with liver disease, for example, are either known 
 PNPLA3, TM6SF2, APOE, GCKR, TRIB1, GPAM, MARC1, MTTP, ADH1B, TOR1B, TMC4/MBOAT7, COBLL1, SREBF1, INSR, FTO, PNPLA2, MTARC1, MLXIPL, ADH1C, HFE, ATP7B, FRZB, IL18RAP, FLT3, GDF15, HGFAC, FSTL3, INHBA, INHBB
 ```
 
+See directory `figures/goodman`.
+
 
 ## Characterizing reads with clipped alignments
+
+
+------> RECOMPUTE ALL NUMBERS AND PLOTS USING THE NEW CODE THAT DISTINGUISHES BETWEEN 0 AND -1 AND THAT ALLOWS NON-CANONICAL-CONTIGS-ONLY READS.
+
 
 In the ST001 230x PacBio sample, 3.1% of all reads (i.e. 1'331'049 of 42'912'521 total) have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome (see [ClippedAlignments.java](https://github.com/fabio-cunial/smaht_experiments/blob/main/scripts/ClippedAlignments.java)). Here are some reads with clipped alignments, where colors corresponds to chromosomes in forward (positive) and reverse-complement (negative) orientation, and where:
 
@@ -288,7 +294,7 @@ In the ST001 230x PacBio sample, 3.1% of all reads (i.e. 1'331'049 of 42'912'521
 
 ![](figures/66.png)
 
-Many reads map to just one chromosome and then continue with unmapped sequence, and many reads map to at least one non-canonical chromosome:
+Many reads map to just one chromosome and then continue with sequence that is not mapped to any region of GRCh38, and many reads map to at least one non-canonical GRCh38 chromosome:
 
 ![](figures/67.png)
 
@@ -327,14 +333,39 @@ _"For each tissue, five 10 cm x 1 cm x 1 cm samples from defined anatomical loca
 _''To minimize regional variability and ensure consistency across sequencing centers, frozen tissues were pulverized into a powder using a pre-chilled mortar and pestle with liquid nitrogen. The homogenized material was pooled, mixed for uniformity, and aliquoted."_
 
 
+Presence in other tissues/samples (PacBio only, by superficial IGV inspection only):
+
+```
+ST001	liver	Y
+ST001	lung	Y
+ST002	colon	Y
+ST002	lung	Y
+ST003	brain	Y
+ST004	brain	Y
+```
 
 
 
 
 
+
+----------> SAME ANALYSIS BUT ON ONT
 
 
 These seem to be even more frequent in ONT, but we have to make sure ONT was aligned to the same reference (see error message from header in CRAMs).
+
+
+
+
+### Investigating unmapped sequences
+
+----------> REALIGN EVERY READ WITH UNMAPPED PARTS TO CHM13
+
+
+
+
+
+
 
 
 ## Telomere length analysis

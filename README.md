@@ -158,7 +158,7 @@ PacBio reads can also show the 5mC status of TRs (examples from ST001 230x PacBi
 
 In the ST001 230x PacBio BAM.
 
-**Note on clipped alignments:** In this PacBio sample, ~3% of all reads have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome. Often these reads map to more than one chromosome, or contain sequence that does not map to any region of GRCh38. We assume that such reads are chimeras and discard them, unless their clips are aligned and their patterns of mismatching bases are supported by more than one read. The same phenomenon occurs in PacBio samples from HPRC, and in ONT reads from ST001.
+**Note on clipped alignments.** In this PacBio sample, ~3% of all reads have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome. Often these reads map to more than one chromosome, or contain sequence that does not map to any region of GRCh38. We assume that such reads are chimeras and discard them, unless their clips are aligned and their patterns of mismatching bases are supported by more than one read. The same phenomenon occurs in PacBio samples from HPRC, and in ONT reads from ST001.
 
 
 ### chr4:99305502-99305645
@@ -316,12 +316,19 @@ These seem to be even more frequent in ONT, but we have to make sure ONT was ali
 
 Ng, Stanley WK, et al. "[Convergent somatic mutations in metabolism genes in chronic liver disease.](https://www.nature.com/articles/s41586-021-03974-6)" Nature 598.7881 (2021): 473-478.
 
-**Some notes on the paper:** Interestingly every one of their short-read samples is just 31x, but they do take multiple microdissections from the same liver, at controlled distances between microdissections (to probe different clones and prove convergent mutation). It's also interesting that they find structural variants at or near AVCR2A, GPAM, FOXO1, and that they estimate telomere lengths (another analysis for which long reads may be superior).
+**Some notes on the paper.** Interestingly every one of their short-read samples is just 31x, but they do take multiple microdissections from the same liver, at controlled distances between microdissections (to probe different clones and prove convergent mutation). It's also interesting that they find structural variants at or near AVCR2A, GPAM, FOXO1, and that they estimate telomere lengths (another analysis for which long reads may be superior).
 
 See directory `figures/ng_et_al_2021` for a full list of screenshots.
 
 
+### ABCB11
 
+![](figures/ng_et_al_2021/ABCB11.png)
+
+
+### B9D2
+
+![](figures/ng_et_al_2021/B9D2.png)
 
 
 
@@ -341,8 +348,6 @@ See directory `figures/goodman` for a full list of screenshots.
 
 
 
-
-
 ### GCKR
 
 The gene seems to have no SV but >=2 methylation patterns:
@@ -358,6 +363,61 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 ![](figures/65.png)
 -->
 
+
+
+### ADH1C
+
+![](figures/goodman/ADH1C.png)
+
+
+### ATP7B
+
+![](figures/goodman/ATP7B.png)
+
+
+### FLT3
+
+![](figures/goodman/FLT3.png)
+
+
+### HGFAC
+
+![](figures/goodman/HGFAC.png)
+
+
+### IL18RAP
+
+![](figures/goodman/IL18RAP.png)
+
+
+### INSR
+
+![](figures/goodman/INSR.png)
+
+
+### MBOAT7
+
+![](figures/goodman/MBOAT7.png)
+
+
+### MTTP
+
+![](figures/goodman/MTTP.png)
+
+
+### PNPLA3
+
+![](figures/goodman/PNPLA3.png)
+
+
+### SREBF1
+
+![](figures/goodman/SREBF1.png)
+
+
+### TMC4
+
+![](figures/goodman/TMC4.png)
 
 
 

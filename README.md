@@ -123,10 +123,6 @@ We IGV'd each one of the top 50 expressed genes in the liver according to [GTEx]
 
 
 
-
-
----
-
 # Tandem repeat analysis
 
 We IGV'd (in the ST001 230x PacBio BAM) each one of the top 50 expressed genes in the liver according to [GTEx](https://www.gtexportal.org/home/tissue/Liver), and we saw multiple haplotypes in some TRs:
@@ -162,6 +158,9 @@ PacBio reads can also show the 5mC status of TRs (examples from ST001 230x PacBi
 
 In the ST001 230x PacBio BAM.
 
+**Note on clipped alignments:** In this PacBio sample, ~3% of all reads have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome. Often these reads map to more than one chromosome, or contain sequence that does not map to any region of GRCh38. We assume that such reads are chimeras and discard them, unless their clips are aligned and their patterns of mismatching bases are supported by more than one read. The same phenomenon occurs in PacBio samples from HPRC, and in ONT reads from ST001.
+
+
 ### chr4:99305502-99305645
 
 ![](figures/33.png)
@@ -195,7 +194,7 @@ This TR seems to be methylated, and to have >=2 distinct 5mC patterns (gray: FWD
 
 ![](figures/52.png)
 
-Zoom in:
+Zooming in, several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
 
 ![](figures/39.png)
 
@@ -205,13 +204,13 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 <!-- ![](figures/56.png) -->
 
 
-
-
 ### chr19:3971709-3975587
+
+The ends of clipped alignments seem to be consistently located, and the mismatching bases seem to be supported by more than one read:
 
 ![](figures/50.png)
 
-This TR seems to be methylated with a consistent pattern, which seems to diverge in the clipped alignments (gray: FWD strand, green: REV strand):
+Moreover, this TR seems to be methylated with a consistent pattern, which seems to diverge in the clipped alignments (gray: FWD strand, green: REV strand):
 
 ![](figures/53.png)
 
@@ -221,13 +220,13 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 <!-- ![](figures/58.png) -->
 
 
-
-
 ### chr19:3988584-3990151
+
+Several clipped alignments seem to have mismatching bases aligned with a het INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same het INS, but it is worth investigating.
 
 ![](figures/51.png)
 
-This TR seems to be methylated with a consistent pattern, which seems to diverge in the clipped alignments (gray: FWD strand, green: REV strand):
+Moreover, this TR seems to be methylated with a consistent pattern, which seems to diverge in the clipped alignments (gray: FWD strand, green: REV strand):
 
 ![](figures/54.png)
 
@@ -239,50 +238,8 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 
 
 
-### GCKR
-
-![](figures/61.png)
-
-The gene seems to have >=2 methylation patterns, which are altered in clipped alignments.
-
-![](figures/62.png)
-
-We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the gene sequence in the reference is in red):
-
-![](figures/63.png)
-![](figures/64.png)
-![](figures/65.png)
-
-
-
-
-
-## Genes from Ng et al. 2021
-
-Ng, Stanley WK, et al. "[Convergent somatic mutations in metabolism genes in chronic liver disease.](https://www.nature.com/articles/s41586-021-03974-6)" Nature 598.7881 (2021): 473-478.
-
-See directory `figures/ng_et_al_2021`.
-
-Interestingly every one of their short-read samples is just 31x, but they do take multiple microdissections from the same liver, at controlled distances between microdissections (to probe different clones and prove convergent mutation). It's also interesting that they find structural variants at or near AVCR2A, GPAM, FOXO1, and that they estimate telomere lengths (another analysis for which long reads may be superior).
-
-
-
-## Genes from Russell Goodman
-
-Genes with clear associations with liver disease, for example, are either known genetic risk factors for fatty liver disease, or protect from alcohol-related liver disease. The Goodman lab has interests, tools and techniques to study GCKR, ADH1B, and MLXIPL, so any novel biology related to those three genes would have the lowest activation energy for mechanistic studies.
-
-```
-PNPLA3, TM6SF2, APOE, GCKR, TRIB1, GPAM, MARC1, MTTP, ADH1B, TOR1B, TMC4/MBOAT7, COBLL1, SREBF1, INSR, FTO, PNPLA2, MTARC1, MLXIPL, ADH1C, HFE, ATP7B, FRZB, IL18RAP, FLT3, GDF15, HGFAC, FSTL3, INHBA, INHBB
-```
-
-See directory `figures/goodman`.
-
-
+<!--
 ## Characterizing reads with clipped alignments
-
-
-------> RECOMPUTE ALL NUMBERS AND PLOTS USING THE NEW CODE THAT DISTINGUISHES BETWEEN 0 AND -1 AND THAT ALLOWS NON-CANONICAL-CONTIGS-ONLY READS.
-
 
 In the ST001 230x PacBio sample, 3.1% of all reads (i.e. 1'331'049 of 42'912'521 total) have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome (see [ClippedAlignments.java](https://github.com/fabio-cunial/smaht_experiments/blob/main/scripts/ClippedAlignments.java)). Here are some reads with clipped alignments, where colors corresponds to chromosomes in forward (positive) and reverse-complement (negative) orientation, and where:
 
@@ -332,7 +289,6 @@ _"For each tissue, five 10 cm x 1 cm x 1 cm samples from defined anatomical loca
 
 _''To minimize regional variability and ensure consistency across sequencing centers, frozen tissues were pulverized into a powder using a pre-chilled mortar and pestle with liquid nitrogen. The homogenized material was pooled, mixed for uniformity, and aliquoted."_
 
-
 Presence in other tissues/samples (PacBio only, by superficial IGV inspection only):
 
 ```
@@ -344,22 +300,63 @@ ST003	brain	Y
 ST004	brain	Y
 ```
 
-
-
-
-
-
-----------> SAME ANALYSIS BUT ON ONT
-
-
 These seem to be even more frequent in ONT, but we have to make sure ONT was aligned to the same reference (see error message from header in CRAMs).
+-->
 
 
 
 
-### Investigating unmapped sequences
 
-----------> REALIGN EVERY READ WITH UNMAPPED PARTS TO CHM13
+
+
+# Genes with known association with liver function
+
+
+## Genes from Ng et al. 2021
+
+Ng, Stanley WK, et al. "[Convergent somatic mutations in metabolism genes in chronic liver disease.](https://www.nature.com/articles/s41586-021-03974-6)" Nature 598.7881 (2021): 473-478.
+
+**Some notes on the paper:** Interestingly every one of their short-read samples is just 31x, but they do take multiple microdissections from the same liver, at controlled distances between microdissections (to probe different clones and prove convergent mutation). It's also interesting that they find structural variants at or near AVCR2A, GPAM, FOXO1, and that they estimate telomere lengths (another analysis for which long reads may be superior).
+
+See directory `figures/ng_et_al_2021` for a full list of screenshots.
+
+
+
+
+
+
+
+
+
+## Genes from Russell Goodman
+
+Genes with clear associations with liver disease, e.g. genes that are either known genetic risk factors for fatty liver disease, or protect from alcohol-related liver disease. The Goodman lab has interests, tools and techniques to study GCKR, ADH1B, and MLXIPL, so any novel biology related to those three genes would have the lowest activation energy for mechanistic studies.
+
+```
+PNPLA3, TM6SF2, APOE, GCKR, TRIB1, GPAM, MARC1, MTTP, ADH1B, TOR1B, TMC4/MBOAT7, COBLL1, SREBF1, INSR, FTO, PNPLA2, MTARC1, MLXIPL, ADH1C, HFE, ATP7B, FRZB, IL18RAP, FLT3, GDF15, HGFAC, FSTL3, INHBA, INHBB
+```
+
+See directory `figures/goodman` for a full list of screenshots.
+
+
+
+
+
+
+### GCKR
+
+The gene seems to have no SV but >=2 methylation patterns:
+
+![](figures/61.png)
+![](figures/62.png)
+
+<!--
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the gene sequence in the reference is in red):
+
+![](figures/63.png)
+![](figures/64.png)
+![](figures/65.png)
+-->
 
 
 

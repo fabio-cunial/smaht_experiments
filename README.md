@@ -341,7 +341,7 @@ Moreover, there might be somatic variation in a hom DEL.
 
 
 
-## Genes from Russell Goodman
+## Genes from the Goodman Lab (MGH)
 
 Genes with clear associations with liver disease, e.g. genes that are either known genetic risk factors for fatty liver disease, or protect from alcohol-related liver disease. The Goodman lab has interests, tools and techniques to study GCKR, ADH1B, and MLXIPL, so any novel biology related to those three genes would have the lowest activation energy for mechanistic studies.
 
@@ -397,6 +397,25 @@ Possible somatic variation in a het DEL and nearby het INS, but these might be j
 
 ![](figures/goodman/HGFAC.png)
 
+We extract spanning reads from the ST001 230x PacBio BAM with hapestry's command:
+```
+extract_reads_from_windows --output_dir ./reads_with_q/ \
+	--bam_csv ${SAMPLES_LIST} \
+	--windows ${FLANKED_WINDOWS_BED} \
+	--bam_not_hardclipped \
+	--require_spanning \
+	--flank_length 0 \
+	--fetch_max_length 100000 \
+	--tags NM \
+	--n_threads 1 \
+	--force_forward
+```
+Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). There seem to be just two haplotypes in the window.
+
+![](figures/69.png)
+
+
+
 
 ### IL18RAP
 
@@ -417,6 +436,26 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 The TR might have more than two haplotypes based on its SNP pattern. 
 
 ![](figures/goodman/MBOAT7.png)
+
+We extract spanning reads from the ST001 230x PacBio BAM with hapestry's command:
+```
+extract_reads_from_windows --output_dir ./reads_with_q/ \
+	--bam_csv ${SAMPLES_LIST} \
+	--windows ${FLANKED_WINDOWS_BED} \
+	--bam_not_hardclipped \
+	--require_spanning \
+	--flank_length 0 \
+	--fetch_max_length 100000 \
+	--tags NM \
+	--n_threads 1 \
+	--force_forward
+```
+Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). There seem to be more than two haplotypes in the window.
+
+![](figures/70.png)
+
+
+
 
 
 ### MTTP
@@ -446,7 +485,22 @@ The TR might have more than two haplotypes based on its SNP pattern.
 
 ![](figures/goodman/TMC4.png)
 
+We extract spanning reads from the ST001 230x PacBio BAM with hapestry's command:
+```
+extract_reads_from_windows --output_dir ./reads_with_q/ \
+	--bam_csv ${SAMPLES_LIST} \
+	--windows ${FLANKED_WINDOWS_BED} \
+	--bam_not_hardclipped \
+	--require_spanning \
+	--flank_length 0 \
+	--fetch_max_length 100000 \
+	--tags NM \
+	--n_threads 1 \
+	--force_forward
+```
+Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). There seem to be more than two haplotypes in the window.
 
+![](figures/71.png)
 
 
 

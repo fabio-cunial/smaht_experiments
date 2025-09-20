@@ -318,15 +318,21 @@ Ng, Stanley WK, et al. "[Convergent somatic mutations in metabolism genes in chr
 
 **Some notes on the paper.** Interestingly every one of their short-read samples is just 31x, but they do take multiple microdissections from the same liver, at controlled distances between microdissections (to probe different clones and prove convergent mutation). It's also interesting that they find structural variants at or near AVCR2A, GPAM, FOXO1, and that they estimate telomere lengths (another analysis for which long reads may be superior).
 
-See directory `figures/ng_et_al_2021` for a full list of screenshots.
+See directory `figures/ng_et_al_2021` for a full list of screenshots. Top: SMHT001 (cirrotic). Bottom: ST001 (healthy).
 
 
 ### ABCB11
+
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
 
 ![](figures/ng_et_al_2021/ABCB11.png)
 
 
 ### B9D2
+
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
+
+Moreover, there might be somatic variation in a hom DEL.
 
 ![](figures/ng_et_al_2021/B9D2.png)
 
@@ -343,7 +349,7 @@ Genes with clear associations with liver disease, e.g. genes that are either kno
 PNPLA3, TM6SF2, APOE, GCKR, TRIB1, GPAM, MARC1, MTTP, ADH1B, TOR1B, TMC4/MBOAT7, COBLL1, SREBF1, INSR, FTO, PNPLA2, MTARC1, MLXIPL, ADH1C, HFE, ATP7B, FRZB, IL18RAP, FLT3, GDF15, HGFAC, FSTL3, INHBA, INHBB
 ```
 
-See directory `figures/goodman` for a full list of screenshots.
+See directory `figures/goodman` for a full list of screenshots. Top: SMHT001 (cirrotic). Bottom: ST001 (healthy).
 
 
 
@@ -364,58 +370,79 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 -->
 
 
-
 ### ADH1C
+
+The ends of clipped alignments seem to be consistently located, and the mismatching bases seem to be supported by more than one read.
 
 ![](figures/goodman/ADH1C.png)
 
 
 ### ATP7B
 
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
+
 ![](figures/goodman/ATP7B.png)
 
 
 ### FLT3
+
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
 
 ![](figures/goodman/FLT3.png)
 
 
 ### HGFAC
 
+Possible somatic variation in a het DEL and nearby het INS, but these might be just alignment artifacts and there might be just two haplotypes in practice.
+
 ![](figures/goodman/HGFAC.png)
 
 
 ### IL18RAP
+
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
 
 ![](figures/goodman/IL18RAP.png)
 
 
 ### INSR
 
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
+
 ![](figures/goodman/INSR.png)
 
 
 ### MBOAT7
+
+The TR might have more than two haplotypes based on its SNP pattern. 
 
 ![](figures/goodman/MBOAT7.png)
 
 
 ### MTTP
 
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
+
 ![](figures/goodman/MTTP.png)
 
 
 ### PNPLA3
+
+Several clipped alignments seem to have mismatching bases aligned at the same position, and the patterns of mismatch seem to be supported by more than one read. However, this is unlikely to be somatic. Interestingly this happens in the cirrotic sample but not in the healthy sample. 
 
 ![](figures/goodman/PNPLA3.png)
 
 
 ### SREBF1
 
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
+
 ![](figures/goodman/SREBF1.png)
 
 
 ### TMC4
+
+The TR might have more than two haplotypes based on its SNP pattern.
 
 ![](figures/goodman/TMC4.png)
 

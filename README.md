@@ -198,7 +198,7 @@ Zooming in, several clipped alignments seem to have mismatching bases aligned wi
 
 ![](figures/39.png)
 
-We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
 
 ![](figures/55.png)
 <!-- ![](figures/56.png) -->
@@ -214,7 +214,7 @@ Moreover, this TR seems to be methylated with a consistent pattern, which seems 
 
 ![](figures/53.png)
 
-We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
 
 ![](figures/57.png)
 <!-- ![](figures/58.png) -->
@@ -230,7 +230,7 @@ Moreover, this TR seems to be methylated with a consistent pattern, which seems 
 
 ![](figures/54.png)
 
-We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
 
 ![](figures/59.png)
 <!-- ![](figures/60.png) -->
@@ -356,7 +356,7 @@ Moreover, there might be somatic variation in a hom DEL.
 
 ![](figures/ng_et_al_2021/B9D2.png)
 
-We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`. In all graphs that follow:
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3`. In all graphs that follow:
 
 * Blue: nodes traversed by at least 3 reads.
 * Red: reference sequence.
@@ -416,7 +416,7 @@ Several clipped alignments seem to have mismatching bases aligned at the same po
 
 ![](figures/goodman/PNPLA3.png)
 
-We extract alignments (spanning and non-spanning) just from SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`. In all graphs that follow:
+We extract alignments (spanning and non-spanning) just from SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3`. In all graphs that follow:
 
 * Blue: nodes traversed by at least 3 reads.
 * Red: reference sequence.
@@ -439,7 +439,7 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 
 ![](figures/goodman/INSR.png)
 
-We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`. In all graphs that follow:
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3`. In all graphs that follow:
 
 * Blue: nodes traversed by at least 3 reads.
 * Red: reference sequence.
@@ -462,7 +462,7 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 
 ![](figures/goodman/MTTP.png)
 
-We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`. In all graphs that follow:
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3`. In all graphs that follow:
 
 * Blue: nodes traversed by at least 3 reads.
 * Red: reference sequence.
@@ -531,7 +531,7 @@ The ends of clipped alignments seem to be consistently located, and the mismatch
 
 ![](figures/goodman/ADH1C.png)
 
-We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`. In all graphs that follow:
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3`. In all graphs that follow:
 
 * Blue: nodes traversed by at least 3 reads.
 * Red: reference sequence.
@@ -555,7 +555,7 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 
 ![](figures/goodman/ATP7B.png)
 
-We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`. In all graphs that follow:
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3`. In all graphs that follow:
 
 * Blue: nodes traversed by at least 3 reads.
 * Red: reference sequence.
@@ -578,7 +578,7 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 
 ![](figures/goodman/IL18RAP.png)
 
-We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`. In all graphs that follow:
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3`. In all graphs that follow:
 
 * Blue: nodes traversed by at least 3 reads.
 * Red: reference sequence.
@@ -601,7 +601,7 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 
 ![](figures/goodman/SREBF1.png)
 
-We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`. In all graphs that follow:
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3`. In all graphs that follow:
 
 * Blue: nodes traversed by at least 3 reads.
 * Red: reference sequence.
@@ -623,7 +623,7 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 
 ![](figures/goodman/FLT3.png)
 
-We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`. In all graphs that follow:
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3`. In all graphs that follow:
 
 * Blue: nodes traversed by at least 3 reads.
 * Red: reference sequence.

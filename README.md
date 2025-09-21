@@ -431,6 +431,30 @@ Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed o
 
 ![](figures/71.png)
 
+### MBOAT7
+
+The TR might have more than two haplotypes based on its SNP pattern. 
+
+![](figures/goodman/MBOAT7.png)
+
+We extract spanning reads from the ST001 230x PacBio BAM with hapestry's command:
+```
+extract_reads_from_windows --output_dir ./reads_with_q/ \
+	--bam_csv ${SAMPLES_LIST} \
+	--windows ${FLANKED_WINDOWS_BED} \
+	--bam_not_hardclipped \
+	--require_spanning \
+	--flank_length 0 \
+	--fetch_max_length 100000 \
+	--tags NM \
+	--n_threads 1 \
+	--force_forward
+```
+Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). There seem to be more than two haplotypes in the window.
+
+![](figures/70.png)
+
+
 ### ADH1C
 
 The ends of clipped alignments seem to be consistently located, and the mismatching bases seem to be supported by more than one read.
@@ -455,28 +479,6 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 
 We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
 
-### MBOAT7
-
-The TR might have more than two haplotypes based on its SNP pattern. 
-
-![](figures/goodman/MBOAT7.png)
-
-We extract spanning reads from the ST001 230x PacBio BAM with hapestry's command:
-```
-extract_reads_from_windows --output_dir ./reads_with_q/ \
-	--bam_csv ${SAMPLES_LIST} \
-	--windows ${FLANKED_WINDOWS_BED} \
-	--bam_not_hardclipped \
-	--require_spanning \
-	--flank_length 0 \
-	--fetch_max_length 100000 \
-	--tags NM \
-	--n_threads 1 \
-	--force_forward
-```
-Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). There seem to be more than two haplotypes in the window.
-
-![](figures/70.png)
 
 ### SREBF1
 

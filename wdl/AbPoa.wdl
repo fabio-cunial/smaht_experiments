@@ -5,6 +5,7 @@ version 1.0
 workflow AbPoa {
     input {
         File reads_fa
+        Int abpoa_align_mode = 1
         Int abpoa_result = 3
     }
     parameter_meta {
@@ -13,6 +14,7 @@ workflow AbPoa {
     call Impl {
         input:
             reads_fa = reads_fa,
+            abpoa_align_mode = abpoa_align_mode,
             abpoa_result = abpoa_result
     }
     
@@ -26,11 +28,13 @@ task Impl {
     input {
         File reads_fa
         Int abpoa_result
+        Int abpoa_align_mode
         
         Int n_cores = 2
         Int ram_gb = 128
     }
     parameter_meta {
+        abpoa_align_mode: "The `--aln-mode` flag of abPOA: 0=global, 1=local, 2=extension."
         abpoa_result: "The `--result` flag of abPOA: 1=MSA 3=GFA."
     }
     
@@ -48,7 +52,7 @@ task Impl {
         N_THREADS=$(( 2 * ${N_SOCKETS} * ${N_CORES_PER_SOCKET} ))
         df -h
         
-        ${TIME_COMMAND} ~{docker_dir}/abPOA/bin/abpoa -m 0 --amb-strand --sort-by-len --result ~{abpoa_result} --verbose 2 ~{reads_fa} > out.txt
+        ${TIME_COMMAND} ~{docker_dir}/abPOA/bin/abpoa -m ~{abpoa_align_mode} --amb-strand --sort-by-len --result ~{abpoa_result} --verbose 2 ~{reads_fa} > out.txt
         ls -laht
     >>>
     

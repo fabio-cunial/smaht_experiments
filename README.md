@@ -309,16 +309,16 @@ These seem to be even more frequent in ONT, but we have to make sure ONT was ali
 
 
 
-# Genes with known association with liver function
+# Genes associated with liver function
 
 
-## Genes from Ng et al. 2021
+## From Ng et al. 2021
 
 Ng, Stanley WK, et al. "[Convergent somatic mutations in metabolism genes in chronic liver disease.](https://www.nature.com/articles/s41586-021-03974-6)" Nature 598.7881 (2021): 473-478.
 
 **Some notes on the paper.** Interestingly every one of their short-read samples is just 31x, but they do take multiple microdissections from the same liver, at controlled distances between microdissections (to probe different clones and prove convergent mutation). It's also interesting that they find structural variants at or near AVCR2A, GPAM, FOXO1, and that they estimate telomere lengths (another analysis for which long reads may be superior).
 
-See directory `figures/ng_et_al_2021` for a full list of screenshots. Top: SMHT001 (cirrotic). Bottom: ST001 (healthy).
+See directory `figures/ng_et_al_2021` for a full list of screenshots. In what follows we only show genes with potential somatic SVs (in every IGV screenshot: top=SMHT001, cirrotic; bottom=ST001, healthy).
 
 
 ### ABCB11
@@ -326,6 +326,10 @@ See directory `figures/ng_et_al_2021` for a full list of screenshots. Top: SMHT0
 Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
 
 ![](figures/ng_et_al_2021/ABCB11.png)
+
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
+
+
 
 
 ### B9D2
@@ -336,24 +340,27 @@ Moreover, there might be somatic variation in a hom DEL.
 
 ![](figures/ng_et_al_2021/B9D2.png)
 
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
 
 
 
 
 
-## Genes from the Goodman Lab (MGH)
 
-Genes with clear associations with liver disease, e.g. genes that are either known genetic risk factors for fatty liver disease, or protect from alcohol-related liver disease. The Goodman lab has interests, tools and techniques to study GCKR, ADH1B, and MLXIPL, so any novel biology related to those three genes would have the lowest activation energy for mechanistic studies.
+
+## From the Goodman Lab
+
+Genes with clear associations with liver disease, e.g. genes that are either known genetic risk factors for fatty liver disease, or protect from alcohol-related liver disease. The [Goodman lab](https://goodmanlab.mgh.harvard.edu/) has interests, tools and techniques to study GCKR, ADH1B, and MLXIPL, so any novel biology related to those three genes would have the lowest activation energy for mechanistic studies.
 
 ```
 PNPLA3, TM6SF2, APOE, GCKR, TRIB1, GPAM, MARC1, MTTP, ADH1B, TOR1B, TMC4/MBOAT7, COBLL1, SREBF1, INSR, FTO, PNPLA2, MTARC1, MLXIPL, ADH1C, HFE, ATP7B, FRZB, IL18RAP, FLT3, GDF15, HGFAC, FSTL3, INHBA, INHBB
 ```
 
-See directory `figures/goodman` for a full list of screenshots. Top: SMHT001 (cirrotic). Bottom: ST001 (healthy).
+See directory `figures/goodman` for a full list of screenshots. In what follows we only show genes with potential somatic SVs (in every IGV screenshot: top=SMHT001, cirrotic; bottom=ST001, healthy).
 
 
 
-
+<!--
 ### GCKR
 
 The gene seems to have no SV but >=2 methylation patterns:
@@ -361,7 +368,14 @@ The gene seems to have no SV but >=2 methylation patterns:
 ![](figures/61.png)
 ![](figures/62.png)
 
-<!--
+
+
+
+
+
+
+
+------------------- OLD, delete what follows --------------------------
 We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3` (the gene sequence in the reference is in red):
 
 ![](figures/63.png)
@@ -370,12 +384,60 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 -->
 
 
+### PNPLA3
+
+Several clipped alignments seem to have mismatching bases aligned at the same position, and the patterns of mismatch seem to be supported by more than one read. However, this is unlikely to be somatic. Interestingly this happens in the cirrotic sample but not in the healthy sample. 
+
+![](figures/goodman/PNPLA3.png)
+
+We extract alignments (spanning and non-spanning) just from SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
+
+### INSR
+
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
+
+![](figures/goodman/INSR.png)
+
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
+
+### MTTP
+
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
+
+![](figures/goodman/MTTP.png)
+
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
+
+### TMC4
+
+The TR might have more than two haplotypes based on its SNP pattern.
+
+![](figures/goodman/TMC4.png)
+
+We extract spanning reads from the ST001 230x PacBio BAM with hapestry's command:
+```
+extract_reads_from_windows --output_dir ./reads_with_q/ \
+	--bam_csv ${SAMPLES_LIST} \
+	--windows ${FLANKED_WINDOWS_BED} \
+	--bam_not_hardclipped \
+	--require_spanning \
+	--flank_length 0 \
+	--fetch_max_length 100000 \
+	--tags NM \
+	--n_threads 1 \
+	--force_forward
+```
+Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). There seem to be more than two haplotypes in the window.
+
+![](figures/71.png)
+
 ### ADH1C
 
 The ends of clipped alignments seem to be consistently located, and the mismatching bases seem to be supported by more than one read.
 
 ![](figures/goodman/ADH1C.png)
 
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
 
 ### ATP7B
 
@@ -383,12 +445,56 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 
 ![](figures/goodman/ATP7B.png)
 
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
+
+### IL18RAP
+
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
+
+![](figures/goodman/IL18RAP.png)
+
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
+
+### MBOAT7
+
+The TR might have more than two haplotypes based on its SNP pattern. 
+
+![](figures/goodman/MBOAT7.png)
+
+We extract spanning reads from the ST001 230x PacBio BAM with hapestry's command:
+```
+extract_reads_from_windows --output_dir ./reads_with_q/ \
+	--bam_csv ${SAMPLES_LIST} \
+	--windows ${FLANKED_WINDOWS_BED} \
+	--bam_not_hardclipped \
+	--require_spanning \
+	--flank_length 0 \
+	--fetch_max_length 100000 \
+	--tags NM \
+	--n_threads 1 \
+	--force_forward
+```
+Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). There seem to be more than two haplotypes in the window.
+
+![](figures/70.png)
+
+### SREBF1
+
+Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
+
+![](figures/goodman/SREBF1.png)
+
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
+
 
 ### FLT3
 
 Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
 
 ![](figures/goodman/FLT3.png)
+
+We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
+
 
 
 ### HGFAC
@@ -417,90 +523,18 @@ Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed o
 
 
 
-### IL18RAP
-
-Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
-
-![](figures/goodman/IL18RAP.png)
-
-
-### INSR
-
-Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
-
-![](figures/goodman/INSR.png)
-
-
-### MBOAT7
-
-The TR might have more than two haplotypes based on its SNP pattern. 
-
-![](figures/goodman/MBOAT7.png)
-
-We extract spanning reads from the ST001 230x PacBio BAM with hapestry's command:
-```
-extract_reads_from_windows --output_dir ./reads_with_q/ \
-	--bam_csv ${SAMPLES_LIST} \
-	--windows ${FLANKED_WINDOWS_BED} \
-	--bam_not_hardclipped \
-	--require_spanning \
-	--flank_length 0 \
-	--fetch_max_length 100000 \
-	--tags NM \
-	--n_threads 1 \
-	--force_forward
-```
-Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). There seem to be more than two haplotypes in the window.
-
-![](figures/70.png)
 
 
 
 
 
-### MTTP
-
-Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
-
-![](figures/goodman/MTTP.png)
 
 
-### PNPLA3
-
-Several clipped alignments seem to have mismatching bases aligned at the same position, and the patterns of mismatch seem to be supported by more than one read. However, this is unlikely to be somatic. Interestingly this happens in the cirrotic sample but not in the healthy sample. 
-
-![](figures/goodman/PNPLA3.png)
 
 
-### SREBF1
-
-Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
-
-![](figures/goodman/SREBF1.png)
 
 
-### TMC4
 
-The TR might have more than two haplotypes based on its SNP pattern.
-
-![](figures/goodman/TMC4.png)
-
-We extract spanning reads from the ST001 230x PacBio BAM with hapestry's command:
-```
-extract_reads_from_windows --output_dir ./reads_with_q/ \
-	--bam_csv ${SAMPLES_LIST} \
-	--windows ${FLANKED_WINDOWS_BED} \
-	--bam_not_hardclipped \
-	--require_spanning \
-	--flank_length 0 \
-	--fetch_max_length 100000 \
-	--tags NM \
-	--n_threads 1 \
-	--force_forward
-```
-Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed oriented). There seem to be more than two haplotypes in the window.
-
-![](figures/71.png)
 
 
 

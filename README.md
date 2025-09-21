@@ -392,6 +392,12 @@ Several clipped alignments seem to have mismatching bases aligned at the same po
 
 We extract alignments (spanning and non-spanning) just from SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
 
+Blue: nodes traversed by at least 3 reads. Red: reference sequence.
+
+![](figures/72.png)
+
+
+
 ### INSR
 
 Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
@@ -400,6 +406,13 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 
 We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
 
+Blue: nodes traversed by at least 3 reads. Red: reference sequence.
+
+![](figures/73.png)
+
+
+
+
 ### MTTP
 
 Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
@@ -407,6 +420,13 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 ![](figures/goodman/MTTP.png)
 
 We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
+
+Blue: nodes traversed by at least 3 reads. Red: reference sequence.
+
+![](figures/74.png)
+
+
+
 
 ### TMC4
 
@@ -463,6 +483,15 @@ The ends of clipped alignments seem to be consistently located, and the mismatch
 
 We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
 
+Blue: nodes traversed by at least 3 reads. Red: reference sequence.
+
+![](figures/75.png)
+
+It seems that all left clips continue on chr20 or on a consistent chrUn, and that all right clips are short and unmapped. The simplest explanation might be that chr20 contains a new copy of that intronic segment.
+
+![](figures/76.png)
+
+
 ### ATP7B
 
 Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
@@ -471,6 +500,15 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 
 We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
 
+Blue: nodes traversed by at least 3 reads. Red: reference sequence.
+
+![](figures/77.png)
+
+It seems that the clipped alignments support the hom INS. However, abPOA does not position the INS at the center of the reference window, and tracing some reads with clipped alignments in the graph gives some unexpected results WRT the BAMs, so I'm not confident about the output of abPOA in this window.
+
+
+
+
 ### IL18RAP
 
 Several clipped alignments seem to have mismatching bases aligned with a hom INS, and the patterns of mismatch seem to be supported by more than one read. These may just be the beginning/end of the same hom INS, but it is worth investigating.
@@ -478,6 +516,14 @@ Several clipped alignments seem to have mismatching bases aligned with a hom INS
 ![](figures/goodman/IL18RAP.png)
 
 We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 with the "Export alignments" feature of IGV, we convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA with flags `-m 0 --amb-strand --sort-by-len --result 3`.
+
+Blue: nodes traversed by at least 3 reads. Red: reference sequence.
+
+![](figures/78.png)
+
+It seems that the clipped alignments support the hom INS. However, tracing some reads with clipped alignments, or some spanning reads with the INS, in the graph, gives some unexpected results WRT the BAMs, so I'm not confident about the output of abPOA in this window.
+
+<!-- Arrivato qui -->
 
 
 ### SREBF1

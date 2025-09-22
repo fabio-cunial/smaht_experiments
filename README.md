@@ -416,7 +416,7 @@ This variation is unlikely to be somatic, but it is interesting because it affec
 The reads seem to support a discontinuity in the middle of the reference window, with completely divergent paths.
 -->
 
-The variant seems to be an INS:
+The variant seems to be a 1.2kb INS:
 
 ![](figures/83.png)
 
@@ -432,7 +432,7 @@ The variant seems to be an INS:
 The reads seem to support a discontinuity in the middle of the reference window, where the hom INS coexists with divergent paths.
 -->
 
-There seems to be more than one INS:
+There seem to be more than one INS, which may be the same ones described by the spanning alignments in the BAM:
 
 ![](figures/84.png)
 
@@ -510,7 +510,7 @@ There seem to be just 3 INS, which may be the same ones described by spanning al
 ![](figures/90.png)
 
 
-
+---
 
 ### ATP7B
 

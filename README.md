@@ -340,6 +340,9 @@ The reads seem to support the hom INS, but they also create a more complex topol
 
 #### Local alignment
 
+![](figures/91.png)
+
+There seems to be complex variation at that location.
 
 #### Extension alignment
 
@@ -368,6 +371,10 @@ We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 wi
 The reads seem to support the hom INS, but they also create a more complex topology, including completely divergent paths.
 
 #### Local alignment
+
+![](figures/92.png)
+
+Rather than an INS, there seem to be two alternative sequences at that location.
 
 #### Extension alignment
 
@@ -429,6 +436,7 @@ The reads seem to support a discontinuity in the middle of the reference window,
 
 #### Local alignment
 
+![](figures/83.png)
 
 #### Extension alignment
 
@@ -452,6 +460,9 @@ The reads seem to support a discontinuity in the middle of the reference window,
 
 #### Local alignment
 
+![](figures/84.png)
+
+There seem to be two different INS at that location.
 
 #### Extension alignment
 
@@ -475,7 +486,14 @@ The reads seem to support a discontinuity in the middle of the reference window,
 
 #### Local alignment
 
+![](figures/85.png)
+
+There seems to be just one INS at that location.
+
 #### Extension alignment
+
+
+
 
 
 ### TMC4
@@ -546,6 +564,8 @@ It seems that all left clips continue on chr20 or on a consistent chrUn, and tha
 
 #### Local alignment
 
+![](figures/86.png)
+
 #### Extension alignment
 
 
@@ -567,6 +587,10 @@ We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 wi
 It seems that the clipped alignments support the hom INS. However, abPOA does not position the INS at the center of the reference window, and tracing some reads with clipped alignments in the graph gives some unexpected results WRT the BAMs, so I'm not confident about the output of abPOA in this window.
 
 #### Local alignment
+
+![](figures/87.png)
+
+There seems to be just one INS at that location.
 
 #### Extension alingment
 
@@ -591,6 +615,10 @@ It seems that the clipped alignments support the hom INS. However, tracing some 
 
 #### Local alignment
 
+![](figures/88.png)
+
+There seems to be just one INS at that location.
+
 #### Extension alignment
 
 
@@ -614,6 +642,10 @@ Rather than an INS, there seem to be two alternative sequences.
 
 #### Local alignment
 
+![](figures/89.png)
+
+There seems to be just one INS at that location.
+
 #### Extension alignment
 
 
@@ -635,6 +667,11 @@ We extract alignments (spanning and non-spanning) from both ST001 and SMHT001 wi
 There seem to be 3 hom INS as in the BAM. However, one INS is located just outside the region, and tracing some reads with clipped alignments in the graph gives some unexpected results WRT the BAMs, so I'm not confident about the output of abPOA in this window.
 
 #### Local alignment
+
+![](figures/90.png)
+
+There seem to be just the 3 hom INS in the BAM at that location.
+
 
 #### Extension alignment
 

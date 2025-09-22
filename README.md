@@ -369,9 +369,9 @@ The POA graph seems to support the presence of multiple INS, but it also shows m
 The reads seem to support the hom INS, but they also create a more complex topology, including completely divergent paths.
 -->
 
-Rather than a single INS, there seem to be two alternative sequences that replace REF:
+There seems to be just one INS:
 
-![](figures/92.png)
+![](figures/93.png)
 
 
 

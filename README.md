@@ -357,6 +357,10 @@ The POA graph seems to support the presence of multiple INS, but it also shows m
 
 ![](figures/91.png)
 
+MSA of all spanning reads:
+
+![](figures/94.png)
+
 
 
 
@@ -436,7 +440,10 @@ There seem to be more than one INS, which may be the same ones described by the 
 
 ![](figures/84.png)
 
+MSA of all spanning reads:
 
+![](figures/95.png)
+![](figures/96.png)
 
 
 ### MTTP

@@ -495,10 +495,11 @@ There seem to be more than two haplotypes:
 It seems that all left clips continue on chr20 or on a consistent chrUn, and that all right clips are short and unmapped:
 
 ![](figures/76.png)
-
-The simplest explanation might be that chr20 contains a new copy of that intronic segment.
-
 ![](figures/86.png)
+
+The simplest explanation might be that chr20 contains a new copy of that intronic segment, and in fact there is an L1 at that location:
+
+![](figures/97.png)
 
 
 

@@ -314,7 +314,7 @@ These seem to be even more frequent in ONT, but we have to make sure ONT was ali
 
 We inspect each gene with IGV and we focus on regions that contain clusters of nearby SVs, clusters of clipped alignments, or clusters of SNPs with different patterns. In every IGV screenshot, the top track shows SMHT001 (cirrotic) and the bottom track shows ST001 (healthy). We perform two analyses:
 
-* Do clipped alignments support different variants from spanning alignments? We try to answer this question by extracting all alignments in a window, from both ST001 and SMHT001, with the "Export alignments" feature of IGV. We convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA in local alignment mode with flags `-m 1 --amb-strand --sort-by-len --result 3`. We show in blue POA nodes that are traversed by >=3 reads and in red nodes that belong to the reference sequence path.
+* Do clipped alignments support different variants from spanning alignments? We try to answer this question by extracting all alignments in a window, from both ST001 and SMHT001, with the "Export alignments" feature of IGV. We convert them to FASTA with `samtools fasta -@ 16 file.sam` and we build a POA graph using abPOA in local alignment mode with flags `-m 1 --amb-strand --sort-by-len --result 3` (global alignment creates much more complex graphs). We show in blue POA nodes that are traversed by >=3 reads and in red nodes that belong to the reference sequence path.
 * Do spanning reads in the ST001 230x PacBio BAM support >2 haplotypes? We try to answer this question by extracting just the spanning portion of each read, with the hapestry command that follows, and then by loading the FASTA into Jalview and using MAFFT (preset `FFT-NS-1`, speed oriented).
 
 ```
@@ -420,7 +420,7 @@ This variation is unlikely to be somatic, but it is interesting because it affec
 The reads seem to support a discontinuity in the middle of the reference window, with completely divergent paths.
 -->
 
-The variant seems to be a 1.2kb INS:
+The variant seems to be a 1.2kb LINE1 INS:
 
 ![](figures/83.png)
 
@@ -459,6 +459,10 @@ There seem to be multiple nearby INS, which may be the same ones described by th
 
 ![](figures/85.png)
 
+MSA of all spanning reads:
+
+![](figures/98.png)
+![](figures/99.png)
 
 
 
@@ -516,6 +520,10 @@ There seem to be 3 hom INS as in the BAM. However, one INS is located just outsi
 There seem to be just 3 INS, which may be the same ones described by spanning alignments in the BAM:
 
 ![](figures/90.png)
+
+MSA of all spanning reads:
+
+??????????????????????????????
 
 
 ---

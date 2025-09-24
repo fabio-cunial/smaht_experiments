@@ -9,8 +9,8 @@ public class Gfa2Csv {
      *
      * @param args
      */
-	public static void main(String[] args) throws Exception {
-		final String INPUT_GFA = args[0];
+    public static void main(String[] args) throws Exception {
+        final String INPUT_GFA = args[0];
         final int MIN_COUNT = Integer.parseInt(args[1]);
         
         final String REF_PATH_NAME = "ref";

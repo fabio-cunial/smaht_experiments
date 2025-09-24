@@ -439,6 +439,18 @@ The reads seem to support a discontinuity in the middle of the reference window,
 There seem to be more than one INS, which may be the same ones described by the spanning alignments in the BAM:
 
 ![](figures/84.png)
+![](figures/101.png)
+
+By selecting some arbitrary nodes in each branch of the graph, and by enumerating all paths that use any of these nodes, there seem to be mainly two haplotypes, with a third hap. only supported by one read:
+
+```
+nReads   path
+    45   10542-,10389-,10198-,10014-,9858-,9690-,
+    45   10542-,64302-,10389-,64155-,63933-,10198-,10014-,9858-,9690-,
+     1   10542-,10389-,10198-,9858-,9690-,
+```
+
+![](figures/100.png)
 
 MSA of all spanning reads:
 
@@ -446,9 +458,11 @@ MSA of all spanning reads:
 ![](figures/96.png)
 
 
+
 ### MTTP
 
 ![](figures/goodman/MTTP.png)
+![](figures/103.png)
 
 <!--#### Global alignment
 ![](figures/74.png)
@@ -458,6 +472,17 @@ The reads seem to support a discontinuity in the middle of the reference window,
 There seem to be multiple nearby INS, which may be the same ones described by the spanning alignments in the BAM:
 
 ![](figures/85.png)
+
+By selecting some arbitrary nodes in each branch of the graph, and by enumerating all paths that use any of these nodes, there seem to be at least 3 well-supported haplotypes, which combine the 5 INS in different ways:
+
+```
+nReads   path
+    66   16861+,17093+,17223+,17289+,17491+,17515+,17619+,17725+,17806+,
+    70   16861+,17093+,17223+,17289+,17491+,17515+,17725+,17806+,
+     4   17806-,77420-,17725-,17619-,17515-,17491-,17289-,77357-,17223-,17093-,16861-,
+```
+
+![](figures/102.png)
 
 MSA of all spanning reads:
 
@@ -501,7 +526,7 @@ It seems that all left clips continue on chr20 or on a consistent chrUn, and tha
 ![](figures/76.png)
 ![](figures/86.png)
 
-The simplest explanation might be that chr20 contains a new copy of that intronic segment, and in fact there is an L1 at that location:
+The simplest explanation might be that chr20 contains a new copy of that intronic segment, and in fact the intronic segment is an L1:
 
 ![](figures/97.png)
 
@@ -511,6 +536,7 @@ The simplest explanation might be that chr20 contains a new copy of that introni
 ### FLT3
 
 ![](figures/goodman/FLT3.png)
+![](figures/104.png)
 
 <!--#### Global alignment
 ![](figures/80.png)
@@ -521,9 +547,18 @@ There seem to be just 3 INS, which may be the same ones described by spanning al
 
 ![](figures/90.png)
 
-MSA of all spanning reads:
+By selecting some arbitrary nodes in each branch of the graph, and by enumerating all paths that use any of these nodes, there seem to be just one haplotypes:
 
-??????????????????????????????
+```
+nReads   path
+    74   1268-,730-,312-,158-,103-,71038-,70873-,70683-,70611-,
+```
+
+![](figures/106.png)
+
+The MSA of all spanning reads seems to show two haplotypes:
+
+![](figures/105.png)
 
 
 ---

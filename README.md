@@ -123,6 +123,13 @@ We IGV'd each one of the top 50 expressed genes in the liver according to [GTEx]
 
 
 
+# Note on clipped alignments
+
+In the ST001 230x PacBio BAM, ~3% of all reads have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome. Often these reads map to more than one chromosome, or contain sequence that does not map to any region of GRCh38. We assume that such reads are chimeras and discard them, unless their clips are aligned and their patterns of mismatching bases are supported by more than one read. The same phenomenon occurs in PacBio samples from HPRC, and in ONT reads from ST001.
+
+
+
+
 # Tandem repeat analysis
 
 We IGV'd (in the ST001 230x PacBio BAM) each one of the top 50 expressed genes in the liver according to [GTEx](https://www.gtexportal.org/home/tissue/Liver), and we saw multiple haplotypes in some TRs:
@@ -154,11 +161,11 @@ PacBio reads can also show the 5mC status of TRs (examples from ST001 230x PacBi
 ![](figures/43.png)
 
 
+
+
 ## Detailed analysis of some TR regions
 
 In the ST001 230x PacBio BAM.
-
-**Note on clipped alignments.** In this PacBio sample, ~3% of all reads have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome. Often these reads map to more than one chromosome, or contain sequence that does not map to any region of GRCh38. We assume that such reads are chimeras and discard them, unless their clips are aligned and their patterns of mismatching bases are supported by more than one read. The same phenomenon occurs in PacBio samples from HPRC, and in ONT reads from ST001.
 
 
 ### chr4:99305502-99305645

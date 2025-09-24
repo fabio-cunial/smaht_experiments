@@ -170,7 +170,8 @@ PacBio reads can also show the 5mC status of TRs (examples from ST001 230x PacBi
 In the ST001 230x PacBio BAM.
 
 
-### chr4:99305502-99305645
+### ⭐️ ADH1B
+<!-- chr4:99305502-99305645 -->
 
 ![](figures/33.png)
 
@@ -195,7 +196,8 @@ Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed o
 This TR has no 5mC marks.
 
 
-### chr1:16563818-16567204
+### NBPF1
+<!-- chr1:16563818-16567204 -->
 
 ![](figures/49.png)
 
@@ -216,7 +218,8 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 Strangely the reference sequence is not aligned with the INS, the left INS is supported by ~10 reads and the right INS is supported by ~5 reads. Probably the POA graph is inaccurate in this region.
 
 
-### chr19:3971709-3975587
+### EEF2
+<!-- chr19:3971709-3975587 -->
 
 The ends of clipped alignments seem to be consistently located, and the mismatching bases seem to be supported by more than one read:
 

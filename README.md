@@ -680,8 +680,13 @@ Brzozowska, N. et al. "[Selection for somatic escape variants in SERPINA1 in the
 ![](figures/111.png)
 ![](figures/112.png)
 
+There seems to be just the 2kb hom INS described by the BAM:
 
+![](figures/113.png)
 
+It might be another copy of SERPINA2:
+
+![](figures/114.png)
 
 
 

@@ -361,7 +361,7 @@ Ng, Stanley WK, et al. "[Convergent somatic mutations in metabolism genes in chr
 See directory [figures/ng_et_al_2021](https://github.com/fabio-cunial/smaht_experiments/tree/main/figures/ng_et_al_2021) for a full list of screenshots. In what follows we only show genes with potentially interesting features.
 
 
-### ABCB11
+### ⭐️ ABCB11
 
 [gnomAD SV >](https://gnomad.broadinstitute.org/region/2-168968743-168981935?dataset=gnomad_sv_r4)
 

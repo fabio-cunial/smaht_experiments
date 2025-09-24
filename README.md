@@ -205,7 +205,7 @@ Zooming in, several clipped alignments seem to have mismatching bases aligned wi
 
 ![](figures/39.png)
 
-We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
+We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA in local alignment mode with flags `-m 1 --amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
 
 ![](figures/55.png)
 <!-- ![](figures/56.png) -->
@@ -223,7 +223,8 @@ Moreover, this TR seems to be methylated with a consistent pattern, which seems 
 
 We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
 
-![](figures/57.png)
+![](figures/108.png)
+<!-- ![](figures/57.png) -->
 <!-- ![](figures/58.png) -->
 
 

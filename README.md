@@ -353,6 +353,8 @@ See directory [figures/ng_et_al_2021](https://github.com/fabio-cunial/smaht_expe
 
 ### ABCB11
 
+[gnomAD SV >](https://gnomad.broadinstitute.org/region/2-168968743-168981935?dataset=gnomad_sv_r4)
+
 ![](figures/ng_et_al_2021/ABCB11.png)
 
 <!-- #### Global alignment
@@ -382,6 +384,8 @@ However the MSA of all spanning reads seems to show two frequent haplotypes:
 ---
 
 ### B9D2
+
+[gnomAD SV >](https://gnomad.broadinstitute.org/region/19-41351836-41379435?dataset=gnomad_sv_r4)
 
 ![](figures/ng_et_al_2021/B9D2.png)
 
@@ -428,6 +432,8 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 
 ### MTTP
 
+[gnomAD SV >](https://gnomad.broadinstitute.org/region/4-99572824-99625997?dataset=gnomad_sv_r4)
+
 ![](figures/goodman/MTTP.png)
 ![](figures/103.png)
 
@@ -461,6 +467,8 @@ MSA of all spanning reads:
 
 ### TMC4
 
+[gnomAD SV >](https://gnomad.broadinstitute.org/region/19-54168466-54169263?dataset=gnomad_sv_r4)
+
 ![](figures/goodman/TMC4.png)
 
 There seem to be more than two haplotypes:
@@ -472,6 +480,8 @@ There seem to be more than two haplotypes:
 
 ### MBOAT7
 
+[gnomAD SV >](https://gnomad.broadinstitute.org/region/19-54181019-54182615?dataset=gnomad_sv_r4)
+
 ![](figures/goodman/MBOAT7.png)
 
 There seem to be more than two haplotypes:
@@ -482,6 +492,8 @@ There seem to be more than two haplotypes:
 
 
 ### PNPLA3
+
+[gnomAD SV >](https://gnomad.broadinstitute.org/region/22-43921805-43949582?dataset=gnomad_sv_r4)
 
 This variation is unlikely to be somatic, but it is interesting because it affects the cirrotic sample but not the healthy sample. 
 

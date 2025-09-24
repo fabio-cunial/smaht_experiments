@@ -523,6 +523,8 @@ The variant seems to be a 1.2kb LINE1 INS:
 
 ### ADH1C
 
+[gnomAD SV >](https://gnomad.broadinstitute.org/region/4-99334497-99354746?dataset=gnomad_sv_r4)
+
 ![](figures/goodman/ADH1C.png)
 
 <!--#### Global alignment
@@ -542,6 +544,8 @@ The simplest explanation might be that chr20 contains a new copy of that introni
 
 
 ### INSR
+
+[gnomAD SV >](https://gnomad.broadinstitute.org/region/19-7127850-7178939?dataset=gnomad_sv_r4)
 
 ![](figures/goodman/INSR.png)
 ![](figures/101.png)
@@ -575,6 +579,8 @@ MSA of all spanning reads:
 
 
 ### FLT3
+
+[gnomAD SV >](https://gnomad.broadinstitute.org/region/13-27987701-28012619?dataset=gnomad_sv_r4)
 
 ![](figures/goodman/FLT3.png)
 ![](figures/104.png)

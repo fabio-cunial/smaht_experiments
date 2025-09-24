@@ -125,7 +125,9 @@ We IGV'd each one of the top 50 expressed genes in the liver according to [GTEx]
 
 # Note on clipped alignments
 
-In the ST001 230x PacBio BAM, ~3% of all reads have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome. Often these reads map to more than one chromosome, or contain sequence that does not map to any region of GRCh38. We assume that such reads are chimeras and discard them, unless their clips are aligned and their patterns of mismatching bases are supported by more than one read. The same phenomenon occurs in PacBio samples from HPRC, and in ONT reads from ST001.
+In the ST001 230x PacBio BAM, ~3% of all reads have at least one clipped alignment, defined as an alignment with either a 100bp left or a 100bp right soft clip and that involves a canonical chromosome. Often these reads map to more than one chromosome, or contain sequence that does not map to any region of GRCh38. We assume that such reads are chimeras and discard them, unless their clips are aligned and their patterns of mismatching bases are supported by more than one read. The same phenomenon occurs in PacBio samples from HPRC, and in ONT reads from ST001. 
+
+More info on chimeras: Heinz et al. [Detecting foldback artifacts in long reads](https://www.biorxiv.org/content/10.1101/2025.07.15.664946v2.abstract). bioRxiv 2025.
 
 
 
@@ -207,8 +209,11 @@ Zooming in, several clipped alignments seem to have mismatching bases aligned wi
 
 We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA in local alignment mode with flags `-m 1 --amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
 
-![](figures/55.png)
+![](figures/110.png)
+<!-- ![](figures/55.png) -->
 <!-- ![](figures/56.png) -->
+
+Strangely the reference sequence is not aligned with the INS, the left INS is supported by ~10 reads and the right INS is supported by ~5 reads. Probably the POA graph is inaccurate in this region.
 
 
 ### chr19:3971709-3975587
@@ -227,6 +232,9 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 <!-- ![](figures/57.png) -->
 <!-- ![](figures/58.png) -->
 
+No read supports the red branching arm (only the ref supports it), and the blue branching arm is supported by ~150 reads: this seems to contradict the BAM.
+
+
 
 ### chr19:3988584-3990151
 
@@ -240,7 +248,8 @@ Moreover, this TR seems to be methylated with a consistent pattern, which seems 
 
 We extract all alignments (spanning and non-spanning) with the "Export alignments" feature of IGV. Then, we build a POA graph using abPOA with flags `--amb-strand --sort-by-len --result 3` (the TR sequence in the reference is in red):
 
-![](figures/59.png)
+![](figures/109.png)
+<!-- ![](figures/59.png) -->
 <!-- ![](figures/60.png) -->
 
 

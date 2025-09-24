@@ -409,56 +409,6 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 
 
 
-### PNPLA3
-
-This variation is unlikely to be somatic, but it is interesting because it affects the cirrotic sample but not the healthy sample. 
-
-![](figures/goodman/PNPLA3.png)
-
-<!--#### Global alignment
-![](figures/72.png)
-The reads seem to support a discontinuity in the middle of the reference window, with completely divergent paths.
--->
-
-The variant seems to be a 1.2kb LINE1 INS:
-
-![](figures/83.png)
-
-
-
-
-### INSR
-
-![](figures/goodman/INSR.png)
-
-<!--#### Global alignment
-![](figures/73.png)
-The reads seem to support a discontinuity in the middle of the reference window, where the hom INS coexists with divergent paths.
--->
-
-There seem to be more than one INS, which may be the same ones described by the spanning alignments in the BAM:
-
-![](figures/84.png)
-![](figures/101.png)
-
-By selecting some arbitrary nodes in each branch of the graph, and by enumerating all paths that use any of these nodes, there seem to be mainly two haplotypes, with a third hap. only supported by one read:
-
-```
-nReads   path
-    45   10542-,10389-,10198-,10014-,9858-,9690-,
-    45   10542-,64302-,10389-,64155-,63933-,10198-,10014-,9858-,9690-,
-     1   10542-,10389-,10198-,9858-,9690-,
-```
-
-![](figures/100.png)
-
-MSA of all spanning reads:
-
-![](figures/95.png)
-![](figures/96.png)
-
-
-
 ### MTTP
 
 ![](figures/goodman/MTTP.png)
@@ -491,6 +441,7 @@ MSA of all spanning reads:
 
 
 
+
 ### TMC4
 
 ![](figures/goodman/TMC4.png)
@@ -509,6 +460,24 @@ There seem to be more than two haplotypes:
 There seem to be more than two haplotypes:
 
 ![](figures/70.png)
+
+
+
+
+### PNPLA3
+
+This variation is unlikely to be somatic, but it is interesting because it affects the cirrotic sample but not the healthy sample. 
+
+![](figures/goodman/PNPLA3.png)
+
+<!--#### Global alignment
+![](figures/72.png)
+The reads seem to support a discontinuity in the middle of the reference window, with completely divergent paths.
+-->
+
+The variant seems to be a 1.2kb LINE1 INS:
+
+![](figures/83.png)
 
 
 
@@ -533,6 +502,39 @@ The simplest explanation might be that chr20 contains a new copy of that introni
 
 
 
+### INSR
+
+![](figures/goodman/INSR.png)
+![](figures/101.png)
+
+<!--#### Global alignment
+![](figures/73.png)
+The reads seem to support a discontinuity in the middle of the reference window, where the hom INS coexists with divergent paths.
+-->
+
+There seem to be more than one INS, which may be the same ones described by the spanning alignments in the BAM:
+
+![](figures/84.png)
+
+By selecting some arbitrary nodes in each branch of the graph, and by enumerating all paths that use any of these nodes, there seem to be mainly two haplotypes, with a third hap. only supported by one read:
+
+```
+nReads   path
+    45   10542-,10389-,10198-,10014-,9858-,9690-,
+    45   10542-,64302-,10389-,64155-,63933-,10198-,10014-,9858-,9690-,
+     1   10542-,10389-,10198-,9858-,9690-,
+```
+
+![](figures/100.png)
+
+MSA of all spanning reads:
+
+![](figures/95.png)
+![](figures/96.png)
+
+
+
+
 ### FLT3
 
 ![](figures/goodman/FLT3.png)
@@ -547,7 +549,7 @@ There seem to be just 3 INS, which may be the same ones described by spanning al
 
 ![](figures/90.png)
 
-By selecting some arbitrary nodes in each branch of the graph, and by enumerating all paths that use any of these nodes, there seem to be just one haplotypes:
+By selecting some arbitrary nodes in each branch of the graph, and by enumerating all paths that use any of these nodes, there seems to be just one haplotype:
 
 ```
 nReads   path
@@ -556,7 +558,7 @@ nReads   path
 
 ![](figures/106.png)
 
-The MSA of all spanning reads seems to show two haplotypes:
+However, the MSA of all spanning reads seems to show two haplotypes:
 
 ![](figures/105.png)
 

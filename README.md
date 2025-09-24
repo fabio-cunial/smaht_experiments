@@ -440,7 +440,7 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 
 
 
-### MTTP
+### ⭐️ MTTP
 
 [gnomAD SV >](https://gnomad.broadinstitute.org/region/4-99572824-99625997?dataset=gnomad_sv_r4)
 
@@ -475,7 +475,7 @@ MSA of all spanning reads:
 
 
 
-### TMC4
+### ⭐️ TMC4
 
 [gnomAD SV >](https://gnomad.broadinstitute.org/region/19-54168466-54169263?dataset=gnomad_sv_r4)
 
@@ -488,7 +488,7 @@ There seem to be more than two haplotypes:
 
 
 
-### MBOAT7
+### ⭐️ MBOAT7
 
 [gnomAD SV >](https://gnomad.broadinstitute.org/region/19-54181019-54182615?dataset=gnomad_sv_r4)
 
@@ -499,7 +499,7 @@ There seem to be more than two haplotypes:
 ![](figures/70.png)
 
 
-
+---
 
 ### PNPLA3
 
@@ -517,6 +517,7 @@ The reads seem to support a discontinuity in the middle of the reference window,
 The variant seems to be a 1.2kb LINE1 INS:
 
 ![](figures/83.png)
+
 
 
 
@@ -608,7 +609,7 @@ However, the MSA of all spanning reads seems to show two haplotypes:
 ![](figures/105.png)
 
 
----
+
 
 ### ATP7B
 
@@ -667,6 +668,17 @@ There seem to be just two haplotypes:
 ![](figures/69.png)
 
 
+
+## From Brzozowska et al. 2025
+
+Brzozowska, N. et al. "[Selection for somatic escape variants in SERPINA1 in the liver of patients with alpha-1 antitrypsin deficiency.](https://www.nature.com/articles/s41588-025-02125-1)" Nature Genetics (2025): 1-9.
+
+### SERPINA1
+
+[gnomAD SV >](https://gnomad.broadinstitute.org/region/14-94361139-94366969?dataset=gnomad_sv_r4)
+
+![](figures/111.png)
+![](figures/112.png)
 
 
 

@@ -360,7 +360,7 @@ See directory [figures/ng_et_al_2021](https://github.com/fabio-cunial/smaht_expe
 The reads seem to support the hom INS, but they also create a more complex topology before/after it.
 -->
 
-The POA graph seems to support the presence of multiple INS, but it also shows more complex variation like alternative parallel sequences.
+The POA graph seems to support the presence of multiple INS:
 
 ![](figures/91.png)
 

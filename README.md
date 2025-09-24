@@ -364,7 +364,17 @@ The POA graph seems to support the presence of multiple INS, but it also shows m
 
 ![](figures/91.png)
 
-MSA of all spanning reads:
+By selecting some arbitrary nodes in each branch of the graph, and by enumerating all paths that use any of these nodes, there seem to be one main haplotype and a second one with smaller read support:
+
+```
+nReads   path
+   106   28157+,28384+,28808+,28877+,28969+,29184+,29329+,29495+,29687+,
+     6   29687-,29329-,29184-,28877-,28808-,28157-, 
+```
+
+![](figures/107.png)
+
+However the MSA of all spanning reads seems to show two frequent haplotypes:
 
 ![](figures/94.png)
 

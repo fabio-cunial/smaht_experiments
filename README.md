@@ -341,7 +341,7 @@ Ng, Stanley WK, et al. "[Convergent somatic mutations in metabolism genes in chr
 
 **Some notes on the paper.** Interestingly every one of their short-read samples is just 31x, but they do take multiple microdissections from the same liver, at controlled distances between microdissections (to probe different clones and prove convergent mutation). It's also interesting that they find structural variants at or near AVCR2A, GPAM, FOXO1, and that they estimate telomere lengths (another analysis for which long reads may be superior).
 
-See directory `figures/ng_et_al_2021` for a full list of screenshots. In what follows we only show genes with potentially interesting features.
+See directory [figures/ng_et_al_2021](https://github.com/fabio-cunial/smaht_experiments/tree/main/figures/ng_et_al_2021) for a full list of screenshots. In what follows we only show genes with potentially interesting features.
 
 
 ### ABCB11
@@ -362,7 +362,7 @@ MSA of all spanning reads:
 ![](figures/94.png)
 
 
-
+---
 
 ### B9D2
 
@@ -392,7 +392,7 @@ Genes with clear associations with liver disease, e.g. genes that are either kno
 PNPLA3, TM6SF2, APOE, GCKR, TRIB1, GPAM, MARC1, MTTP, ADH1B, TOR1B, TMC4/MBOAT7, COBLL1, SREBF1, INSR, FTO, PNPLA2, MTARC1, MLXIPL, ADH1C, HFE, ATP7B, FRZB, IL18RAP, FLT3, GDF15, HGFAC, FSTL3, INHBA, INHBB
 ```
 
-See directory `figures/goodman` for a full list of screenshots. In what follows we only show genes with potentially interesting features.
+See directory [figures/goodman](https://github.com/fabio-cunial/smaht_experiments/tree/main/figures/goodman) for a full list of screenshots. In what follows we only show genes with potentially interesting features.
 <!--
 ### GCKR
 The gene seems to have no SV but >=2 methylation patterns:

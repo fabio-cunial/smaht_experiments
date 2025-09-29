@@ -134,6 +134,8 @@ More info on chimeras: Heinz et al. [Detecting foldback artifacts in long reads]
 
 # Tandem repeat analysis
 
+People in the SMaHT network are already focusing on TRs, see e.g. this [concept sheet](https://docs.google.com/document/d/1uVWeXBupx8FzR1l9lGAjPxttVp2uE_O-UgKcprPHlZM/edit?tab=t.0).
+
 We IGV'd (in the ST001 230x PacBio BAM) each one of the top 50 expressed genes in the liver according to [GTEx](https://www.gtexportal.org/home/tissue/Liver), and we saw multiple haplotypes in some TRs:
 
 ![](figures/29.png)
@@ -695,7 +697,7 @@ It might be another copy of SERPINA2:
 
 ## Telomere length analysis
 
-
+See this [concept sheet](https://docs.google.com/document/d/1T1aTPMkV_C-9Z-zc1X7TYbYaD1YWzG5kRMGZUFfhb5o/edit?tab=t.0).
 
 
 
@@ -723,3 +725,7 @@ TR and liver: https://research.edgehill.ac.uk/en/publications/length-of-variable
 https://pubmed.ncbi.nlm.nih.gov/40004542/
 
 https://www.mdpi.com/2073-4425/16/2/213
+
+
+RNA aberrant splicing:
+https://github.com/gagneurlab/fraser?tab=readme-ov-file

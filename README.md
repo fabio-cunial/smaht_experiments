@@ -694,25 +694,47 @@ It might be another copy of SERPINA2:
 ![](figures/114.png)
 
 
-
-## Telomere length analysis
-
-See this [concept sheet](https://docs.google.com/document/d/1T1aTPMkV_C-9Z-zc1X7TYbYaD1YWzG5kRMGZUFfhb5o/edit?tab=t.0).
+---
 
 
+# Next steps
+
+* Use [SAVANA](https://www.nature.com/articles/s41592-025-02708-0) to confirm if candidates somatic variation survives.
+* Try to reconcile POA graph and MSA in terms of 2 vs 1 hap.
+
+
+---
+
+# Telomere length analysis
+
+See this [concept sheet](https://docs.google.com/document/d/1T1aTPMkV_C-9Z-zc1X7TYbYaD1YWzG5kRMGZUFfhb5o/edit?tab=t.0). This person has already developed a tool and a paper, and is joining Tim's lab soon.
 
 
 
 
-## Cell type deconvolution
 
-Separate reads from mature hepatocytes vs progenitors. Using methylation or Fiber-seq.
+# Cell type deconvolution
+
+Separate reads from mature hepatocytes vs progenitors. Using methylation or Fiber-seq. May depend on how good the annotation of the cell types we want is. However we could do it reference-free, by just clustering the methylation patterns of the reads.
+
+
+
+
+# Combining tissues from the same donor to detect embryonic variants
+
+All 60x PacBio samples should be available in the data portal (in the other section than benchmarking). But the portal is down now.
+
+
+
+# Donors SV paper
+
+Joining the SV donors paper makes sense, esp. for doing a deeper dive on some genes or types of variation.
 
 
 
 ---
 
-## To do
+# References to read
 
 https://pmc.ncbi.nlm.nih.gov/articles/PMC12339610/
 

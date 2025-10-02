@@ -709,6 +709,7 @@ It might be another copy of SERPINA2:
 
 See this [concept sheet](https://docs.google.com/document/d/1T1aTPMkV_C-9Z-zc1X7TYbYaD1YWzG5kRMGZUFfhb5o/edit?tab=t.0). This person has already developed a tool and a paper, and is joining Tim's lab soon.
 
+Cells under stress might replicate more often. TERT is the telomerase gene, and mutations in its promoter might affect telomere length. E.g. mutations could lead to liver cancer if they allow to escape checks on telomere length (Natalia).
 
 
 
@@ -732,6 +733,12 @@ Joining the SV donors paper makes sense, esp. for doing a deeper dive on some ge
 
 
 
+# Long-read RNA
+
+Might be useful also for detecting global splicing patterns (i.e. systematic differences in which transcripts are expressed), induced by a global splicing cofactor gene (Natalia).
+
+
+
 ---
 
 # References to read
@@ -744,6 +751,8 @@ https://academic.oup.com/bioinformatics/article/40/8/btae485/7723996
 
 TR and liver: https://research.edgehill.ac.uk/en/publications/length-of-variable-numbers-of-tandem-repeats-in-the-carboxyl-este#:~:text=Length%20of%20Variable%20Numbers%20of%20Tandem%20Repeats,M%C3%B6ssner%2C%20Claudia%20Ruffert%2C%20Mario%20Krehan%2C%20Christian%20Zapf
 
+Which liver genes have TRs in exons?
+
 https://pubmed.ncbi.nlm.nih.gov/40004542/
 
 https://www.mdpi.com/2073-4425/16/2/213
@@ -751,3 +760,31 @@ https://www.mdpi.com/2073-4425/16/2/213
 
 RNA aberrant splicing:
 https://github.com/gagneurlab/fraser?tab=readme-ov-file
+
+## From Natalia
+
+https://www.nature.com/articles/s41586-019-1670-9
+
+https://www.nature.com/articles/s41586-021-03974-6
+
+https://pubmed.ncbi.nlm.nih.gov/31597092/
+
+https://www.nature.com/articles/s41467-024-55325-4
+
+
+
+# More on hepatocytes
+
+Hepatocites become tetraploid at some point in their lifetime (Natalia).
+
+Different types of hepatocyte:
+* Zone 1 (peri-portal vein)
+* Zone2
+* Zone3 (peri-central vein)
+There is an oxygen gradient, since blood comes in with a lot of oxygen, and the hepatocytes in the three zones might have slightly diffeent metabolic function. However, they do not seem to separate in RNA umaps.
+
+If there is rewiring of some metabolic pathways due to somatic mutations, in which zone is it happening? Maybe we could use methylation to assign variants to zones.
+
+Other cell types in the liver:
+* Cholangiocytes
+* Kupfer cells.

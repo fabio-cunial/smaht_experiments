@@ -169,7 +169,9 @@ PacBio reads can also show the 5mC status of TRs (examples from ST001 230x PacBi
 
 ## Detailed analysis of some TR regions
 
-In the ST001 230x PacBio BAM.
+In the ST001 230x PacBio BAM. 
+
+**Note: some interesting regions in or around these genes might be missing from what follows. Go over IGV in detail once again.**
 
 
 ### ⭐️ ADH1B
@@ -198,7 +200,7 @@ Then, we load the FASTA into Jalview and use MAFFT with preset FFT-NS-1 (Speed o
 This TR has no 5mC marks.
 
 
-### NBPF1
+###❓NBPF1 -- TR overlaps with exons
 <!-- chr1:16563818-16567204 -->
 
 ![](figures/49.png)
@@ -220,7 +222,7 @@ We extract all alignments (spanning and non-spanning) with the "Export alignment
 Strangely the reference sequence is not aligned with the INS, the left INS is supported by ~10 reads and the right INS is supported by ~5 reads. Probably the POA graph is inaccurate in this region.
 
 
-### EEF2
+###❓EEF2
 <!-- chr19:3971709-3975587 -->
 
 The ends of clipped alignments seem to be consistently located, and the mismatching bases seem to be supported by more than one read:
@@ -333,6 +335,8 @@ These seem to be even more frequent in ONT, but we have to make sure ONT was ali
 
 
 # Genes associated with liver function
+
+**Note: some interesting regions in or around these genes might be missing from what follows. Go over IGV in detail once again.**
 
 We inspect each gene with IGV and we focus on regions that contain clusters of nearby SVs, clusters of clipped alignments, or clusters of SNPs with different patterns. In every IGV screenshot, the top track shows SMHT001 (cirrotic) and the bottom track shows ST001 (healthy). We perform two analyses:
 
@@ -697,10 +701,47 @@ It might be another copy of SERPINA2:
 ---
 
 
-# Next steps
+# SAVANA
 
-* Use [SAVANA](https://www.nature.com/articles/s41592-025-02708-0) to confirm if candidates somatic variation survives.
-* Try to reconcile POA graph and MSA in terms of 2 vs 1 hap.
+We tried to run [SAVANA](https://www.nature.com/articles/s41592-025-02708-0) [1.3.6](https://github.com/cortes-ciriano-lab/savana) on the 230x PacBio ST001 liver. Specifically, we ran `savana to --pb --tumour ~{aligned_bam} --ref ~{reference_fa} --g1000_vcf 1000g_hg38 --contigs /savana/example/contigs.chr.hg38.txt`. Remarks:
+* SAVANA seems to be designed for tumor-normal input, but it has a tumor-ony mode (`to`) and we used that in the experiment.
+* It seems to be designed for ONT, but it has a PacBio mode (`--pb`) and we used that in the experiment.
+
+Unfortunately it crashed after 6.5h as follows:
+```
+[...]
+INFO:root:Breakpoint 25663 rejected
+INFO:root:Testing validity of 25716 in interval from 7393 to 25822 yields statistic 3.4292046763790474
+INFO:root:Breakpoint 25716 accepted
+Traceback (most recent call last):
+  File "/opt/conda/bin/savana", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/savana/savana.py", line 762, in main
+    args.func(args)
+  File "/opt/conda/lib/python3.11/site-packages/savana/savana.py", line 367, in savana_tumour_only
+    savana_cna(args, True)
+  File "/opt/conda/lib/python3.11/site-packages/savana/savana.py", line 277, in savana_cna
+    fit_absolute.fit_absolute_cn(outdir, log2r_cn_path, allele_counts_bed_path, args.sample,
+  File "/opt/conda/lib/python3.11/site-packages/savana/fit_absolute.py", line 167, in fit_absolute_cn
+    fits = cnfitter.estimate_grid_distances(min_cellularity, max_cellularity, cellularity_step, min_ploidy, max_ploidy, ploidy_step, relative_CN, weights=weights, distance_function=distance_function)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/savana/cn_functions.py", line 233, in estimate_grid_distances
+    d = acn_distance(relative_CN, cur_pur, cur_ploi, weights=weights, distance_function=distance_function)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/savana/cn_functions.py", line 181, in acn_distance
+    acn = [relative_to_absolute_CN(x, purity, ploidy) for x in relative_CN]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/savana/cn_functions.py", line 181, in <listcomp>
+    acn = [relative_to_absolute_CN(x, purity, ploidy) for x in relative_CN]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/savana/cn_functions.py", line 173, in relative_to_absolute_CN
+    acn = ploidy + (relative_CN - 1)*(ploidy+(2/purity)-2) 
+                                              ~^~~~~~~
+ZeroDivisionError: division by zero
+```
+
+On a VM with 32 cores and 64GB of RAM, it used 28 cores and 20GB of RAM.
 
 
 ---

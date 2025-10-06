@@ -3,6 +3,8 @@
 set -x
 WOMTOOL_PATH="/Users/fcunial/apps/cromwell/womtool-84.jar"
 
+java -jar ${WOMTOOL_PATH} validate -l Trgt.wdl
+java -jar ${WOMTOOL_PATH} validate -l Savana.wdl
 java -jar ${WOMTOOL_PATH} validate -l ClippedAlignments.wdl
 java -jar ${WOMTOOL_PATH} validate -l SortByReadId.wdl
 java -jar ${WOMTOOL_PATH} validate -l Merge.wdl

@@ -148,3 +148,23 @@ RUN wget https://github.com/yangao07/abPOA/releases/download/v${abpoa_version}/a
     && cd abPOA \
     && make -j 16 \
     && ./bin/abpoa --help || echo "1"
+
+# SAVANA
+ARG savana_version=1.3.6
+RUN wget https://github.com/cortes-ciriano-lab/savana/archive/refs/tags/${savana_version}.tar.gz \
+    && tar -xzf ${savana_version}.tar.gz \
+    && rm -f ${savana_version}.tar.gz \
+    && mv ./savana-${savana_version} ./savana \
+    && cd ./savana \
+    && pip install pybedtools pysam cyvcf2 scikit-learn pandas matplotlib \
+    && python3 -m pip install . -vv \
+    && savana --help
+
+# TRGT
+ARG trgt_version=4.0.0
+RUN wget https://github.com/PacificBiosciences/trgt/releases/download/v${trgt_version}/trgt-v${trgt_version}-x86_64-unknown-linux-gnu.tar.gz \
+    && tar -xzf trgt-v${trgt_version}-x86_64-unknown-linux-gnu.tar.gz \
+    && rm -f trgt-v${trgt_version}-x86_64-unknown-linux-gnu.tar.gz \
+    && mv ./trgt-v${trgt_version}-x86_64-unknown-linux-gnu/trgt . \
+    && chmod +x ./trgt \
+    && ./trgt --help

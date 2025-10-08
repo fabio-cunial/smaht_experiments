@@ -236,6 +236,8 @@ GT:AL:ALLR:SD:MC:MS:AP:AM
 ```
 And 250 reads span them. However, as above, aligning the reads to the two haplotypes shows recurrent CIGAR patterns.
 
+Sniffles: no support.
+
 
 ### ❓NBPF1: TR overlapping exons.
 <!-- chr1:16563818-16567204 -->
@@ -273,6 +275,7 @@ And 219 reads span them (coverage in the region: 340). However, aligning the rea
 ![](figures/117.png)
 ![](figures/118.png)
 
+Sniffles: no support.
 
 
 ### ❓EEF2
@@ -311,6 +314,8 @@ GT:AL:ALLR:SD:MC:MS:AP:AM
 And 146 reads span it (coverage in the region: 160). However, aligning the reads to the two haplotypes shows recurrent CIGAR patterns, e.g.:
 
 ![](figures/119.png)
+
+Sniffles: no support.
 
 
 ### chr19:3988584-3990151
@@ -564,6 +569,14 @@ AATATATATATACACACATATATATATATGTTCATATATATACACACATATATATATGTTCATATATATACACACATATA
 ```
 And 250 reads span them (coverage in the region: 300), but with no consistent CIGAR pattern.
 
+Sniffles reports one 64bp INS:
+```
+chr4	99588927
+
+A
+
+AATGTTCATATATATATTCATATATATGTTCATATATATTCATATATATGTTCATATATATATTC
+```
 
 ### ⭐️ TMC4
 
@@ -589,6 +602,8 @@ And 123 reads span them (coverage in the region: 140). Aligning the reads to the
 
 ![](figures/120.png)
 
+Sniffles: no support.
+
 
 ### ⭐️ MBOAT7
 
@@ -611,6 +626,8 @@ CAGGGAGGGAGGGAGGGAGGGAGGGAAGGAGTGAAGAAGGGAAGAAAGAAGGGAGGGAAGGAGGGAAGGAAGGAGGGAGG
 And 87 reads span it (coverage in the region: 100). Aligning the reads to the REF and ALT does not show recurrent CIGAR patterns:
 
 ![](figures/121.png)
+
+Sniffles: no support.
 
 
 ---
@@ -702,6 +719,14 @@ TACACACACACACACCCCCCCCACACACACACACCACACACACACACCACACACACCACACATACACACACCACACACCC
 ```
 And 135 reads span them (coverage in the region: 160). Aligning the reads to the two haplotypes does not show recurrent CIGAR patterns.
 
+Sniffles report one 77bp INS:
+```
+chr19	7153186
+
+A
+
+CCACACACACACCACACACCACACACCACACACACCACACAACACACCACACATACACACACCACAAACACACAACCA
+```
 
 
 ### FLT3
@@ -745,6 +770,7 @@ And 138 reads span them (coverage in the region: 150). It's unclear if aligning 
 
 ![](figures/122.png)
 
+Sniffles: no support.
 
 
 ### ATP7B
@@ -823,6 +849,8 @@ GT:AL:ALLR:SD:MC:MS:AP:AM
 And 132 reads span them (coverage in the region: 140). Aligning the reads to the two haplotypes seems to show some recurrent CIGAR operations, e.g.:
 
 ![](figures/123.png)
+
+Sniffles: no support.
 
 
 ## From Brzozowska et al. 2025

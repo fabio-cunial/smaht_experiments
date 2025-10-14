@@ -168,3 +168,6 @@ RUN wget https://github.com/PacificBiosciences/trgt/releases/download/v${trgt_ve
     && mv ./trgt-v${trgt_version}-x86_64-unknown-linux-gnu/trgt . \
     && chmod +x ./trgt \
     && ./trgt --help
+
+# SEVERUS
+RUN conda create -c conda-forge -c bioconda -n severus_env severus

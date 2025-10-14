@@ -236,7 +236,8 @@ GT:AL:ALLR:SD:MC:MS:AP:AM
 ```
 And 250 reads span them. However, as above, aligning the reads to the two haplotypes shows recurrent CIGAR patterns.
 
-Sniffles: no support.
+* Sniffles: no support.
+* Severus: no support.
 
 
 ### ❓NBPF1: TR overlapping exons.
@@ -275,7 +276,8 @@ And 219 reads span them (coverage in the region: 340). However, aligning the rea
 ![](figures/117.png)
 ![](figures/118.png)
 
-Sniffles: no support.
+* Sniffles: no support.
+* Severus: 1561bp INS, not somatic.
 
 
 ### ❓EEF2
@@ -315,7 +317,8 @@ And 146 reads span it (coverage in the region: 160). However, aligning the reads
 
 ![](figures/119.png)
 
-Sniffles: no support.
+* Sniffles: no support.
+* Severus: somatic 1070bp DEL with VAF=0.89.
 
 
 ### chr19:3988584-3990151
@@ -474,6 +477,7 @@ However the MSA of all spanning reads seems to show two frequent haplotypes:
 
 ![](figures/94.png)
 
+* Severus: somatic 1168bp INS with VAF=0.72.
 
 
 ---
@@ -578,6 +582,12 @@ A
 AATGTTCATATATATATTCATATATATGTTCATATATATTCATATATATGTTCATATATATATTC
 ```
 
+Severus: somatic 389bp INS with VAF=0.90.
+```
+TATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCATATATATATGTTCATATATATATTCAT
+```
+
+
 ### ⭐️ TMC4
 
 [gnomAD SV >](https://gnomad.broadinstitute.org/region/19-54168466-54169263?dataset=gnomad_sv_r4)
@@ -602,7 +612,8 @@ And 123 reads span them (coverage in the region: 140). Aligning the reads to the
 
 ![](figures/120.png)
 
-Sniffles: no support.
+* Sniffles: no support.
+* Severus: no support (but there is a somatic DEL in the last TR of this gene).
 
 
 ### ⭐️ MBOAT7
@@ -627,7 +638,11 @@ And 87 reads span it (coverage in the region: 100). Aligning the reads to the RE
 
 ![](figures/121.png)
 
-Sniffles: no support.
+* Sniffles: no support.
+* Severus: somatic 165bp INS with VAF=0.40.
+```
+GAGGGAAGGAGGGAAGGAAGGAGGGAGGGAAGGAAGGAGGGAAGGAAGGAGGGAAGGAAGGAGGGAGGGAAGGAAGGAGGGAGGGAAGGAAGGAGGGAGGGAGGGAGGGAAGGAGGGAAGGAAGGAGGGAGGGGAAGGAGGGAAGGAAGGAGGGAGGGAAGGAAG
+```
 
 
 ---
@@ -728,6 +743,8 @@ A
 CCACACACACACCACACACCACACACCACACACACCACACAACACACCACACATACACACACCACAAACACACAACCA
 ```
 
+Severus: only a germline 1102bp INS.
+
 
 ### FLT3
 
@@ -770,7 +787,8 @@ And 138 reads span them (coverage in the region: 150). It's unclear if aligning 
 
 ![](figures/122.png)
 
-Sniffles: no support.
+* Sniffles: no support.
+* Severus: only a germline 964bp INS.
 
 
 ### ATP7B
@@ -850,7 +868,8 @@ And 132 reads span them (coverage in the region: 140). Aligning the reads to the
 
 ![](figures/123.png)
 
-Sniffles: no support.
+* Sniffles: no support.
+* Severus: only a germline 142bp DEL and a germline 106bp INS.
 
 
 ## From Brzozowska et al. 2025
@@ -919,6 +938,17 @@ ZeroDivisionError: division by zero
 On a VM with 32 cores and 64GB of RAM, it used 28 cores and 20GB of RAM, and it cost $10.
 
 
+
+# Severus
+
+We run [Severus](https://github.com/KolmogorovLab/Severus) in single-sample mode, using the PON and VNTR files provided in the repo:
+```
+severus --target-bam aligned.bam --PON PoN_1000G_hg38.tsv.gz --vntr-bed human_GRCh38_no_alt_analysis_set.trf.bed.gz --out-dir ./severus 
+```
+
+
+
+
 ---
 
 # Telomere length analysis
@@ -953,6 +983,9 @@ Joining the SV donors paper makes sense, esp. for doing a deeper dive on some ge
 
 Might be useful also for detecting global splicing patterns (i.e. systematic differences in which transcripts are expressed), induced by a global splicing cofactor gene (Natalia).
 
+
+
+# Viral/bacterial reads?
 
 
 ---

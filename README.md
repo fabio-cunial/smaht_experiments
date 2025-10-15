@@ -914,7 +914,7 @@ ACVR2A, ARID2, TSC2, ALB, CDKN2A
 ![](figures/125.png)
 
 
-### TERT (promoter)
+### TERT
 
 ![](figures/124.png)
 

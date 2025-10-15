@@ -892,6 +892,43 @@ It might be another copy of SERPINA2:
 ![](figures/114.png)
 
 
+
+
+## From Brunner et al. 2019
+
+Brunnet, S. et al. "[Somatic mutations and clonal dynamics in healthy and cirrhotic human liver](https://www.nature.com/articles/s41586-019-1670-9)". Nature 2019.
+
+They do 30-70x Illumina WGS per sample. They call SVs with [BRASS](https://github.com/cancerit/BRASS) (breakpoint-oriented), and they remove calls supported by >2 reads. They run another tool for copy-number calling.
+
+"Genomically, one middle-aged, healthy liver looks much like any other: a community of small, tightly-packed clones, each comprising a few hundred cells and containing around 1-1.5k mutations that come from a limited palette of signatures. Unhealthy livers diverge from this norm and instead exhibit large dynasties of clones, which are sequestered by bands of fibrosis and have a repertoire of signatures that is more variable, more vigorous and more regionally variegated."
+
+They also mention that mature hepatocytes at the late stage of differentiation are polyploid and multinuclear. And they observe aneuploidy at whole-chromosome or arm level., unbalanced translocations, and patterns indicative of chromothripsis. These suggest that sustained toxicity and regeneration increase mitotic stress in hepatocytes.
+
+
+### ACVR2A
+
+
+### ARID2
+
+
+### ARID1A
+
+
+### TSC2
+
+
+### ALB
+
+
+### CDKN2A
+
+
+### TERT (promoter)
+
+
+
+
+
 ---
 
 
@@ -986,6 +1023,12 @@ Might be useful also for detecting global splicing patterns (i.e. systematic dif
 
 
 # Viral/bacterial reads?
+
+According to Peter Park, non-human reads are in the BAMs as unmapped reads (i.e. they were not removed during library prep), so this analysis is doable. He points to a similar analysis on the UK Biobank. 
+
+[Hepatitis viruses](https://en.wikipedia.org/wiki/Viral_hepatitis#Hepatitis_viruses) in liver BAMs?
+
+
 
 
 ---

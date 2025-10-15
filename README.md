@@ -904,27 +904,19 @@ They do 30-70x Illumina WGS per sample. They call SVs with [BRASS](https://githu
 
 They also mention that mature hepatocytes at the late stage of differentiation are polyploid and multinuclear. And they observe aneuploidy at whole-chromosome or arm level., unbalanced translocations, and patterns indicative of chromothripsis. These suggest that sustained toxicity and regeneration increase mitotic stress in hepatocytes.
 
-
-### ACVR2A
-
-
-### ARID2
-
+Other genes mentioned but with no iteresting event in ST001: 
+```
+ACVR2A, ARID2, TSC2, ALB, CDKN2A
+```
 
 ### ARID1A
 
-
-### TSC2
-
-
-### ALB
-
-
-### CDKN2A
+![](figures/125.png)
 
 
 ### TERT (promoter)
 
+![](figures/124.png)
 
 
 
